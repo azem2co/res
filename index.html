@@ -1,2130 +1,1755 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Visual Resources — عبد الرحمن العظم</title>
+    <title>Visual Resources — عبد الرحمن العظم</title>
 
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet"
-  >
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
-  <style>
-
-    /* =========================================
+    <style>
+      /* =========================================
        ROOT
     ========================================= */
 
-    :root {
-      --blue-950: #06152f;
-      --blue-900: #0b2450;
-      --blue-800: #103b78;
-      --blue-700: #1557b0;
-      --blue-600: #1677ff;
-      --blue-500: #3b91ff;
-      --blue-400: #73b5ff;
-      --blue-300: #a9d3ff;
-      --blue-200: #d9ecff;
-      --blue-100: #edf7ff;
+      :root {
+        --blue-950: #06152f;
+        --blue-900: #0b2450;
+        --blue-800: #103b78;
+        --blue-700: #1557b0;
+        --blue-600: #1677ff;
+        --blue-500: #3b91ff;
+        --blue-400: #73b5ff;
+        --blue-300: #a9d3ff;
+        --blue-200: #d9ecff;
+        --blue-100: #edf7ff;
 
-      --white: #ffffff;
+        --white: #ffffff;
 
-      --text: #10213d;
-      --muted: #64748b;
+        --text: #10213d;
+        --muted: #64748b;
 
-      --glass: rgba(255,255,255,.64);
-      --glass-strong: rgba(255,255,255,.78);
-      --glass-border: rgba(255,255,255,.85);
+        --glass: rgba(255, 255, 255, 0.64);
+        --glass-strong: rgba(255, 255, 255, 0.78);
+        --glass-border: rgba(255, 255, 255, 0.85);
 
-      --shadow:
-        0 20px 60px rgba(22,119,255,.10),
-        0 5px 20px rgba(15,53,105,.06);
+        --shadow:
+          0 20px 60px rgba(22, 119, 255, 0.1),
+          0 5px 20px rgba(15, 53, 105, 0.06);
 
-      --radius: 26px;
-    }
+        --radius: 26px;
+      }
 
-
-    /* =========================================
+      /* =========================================
        RESET
     ========================================= */
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    html {
-      scroll-behavior: smooth;
-    }
+      html {
+        scroll-behavior: smooth;
+      }
 
-    body {
-      font-family: "Cairo", sans-serif;
-      color: var(--text);
-      min-height: 100vh;
-      overflow-x: hidden;
+      body {
+        font-family: "Cairo", sans-serif;
+        color: var(--text);
+        min-height: 100vh;
+        overflow-x: hidden;
 
-      background:
-        radial-gradient(
-          circle at 90% 5%,
-          rgba(58,145,255,.22),
-          transparent 28%
-        ),
-        radial-gradient(
-          circle at 5% 30%,
-          rgba(115,181,255,.18),
-          transparent 25%
-        ),
-        linear-gradient(
-          135deg,
-          #f7fcff 0%,
-          #eef7ff 45%,
-          #ffffff 100%
-        );
-    }
+        background:
+          radial-gradient(
+            circle at 90% 5%,
+            rgba(58, 145, 255, 0.22),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at 5% 30%,
+            rgba(115, 181, 255, 0.18),
+            transparent 25%
+          ),
+          linear-gradient(135deg, #f7fcff 0%, #eef7ff 45%, #ffffff 100%);
+      }
 
-    a {
-      color: inherit;
-    }
+      a {
+        color: inherit;
+      }
 
-
-    /* =========================================
+      /* =========================================
        BACKGROUND ORBS
     ========================================= */
 
-    .bg-orb {
-      position: fixed;
-      border-radius: 50%;
-      pointer-events: none;
-      z-index: -1;
-      filter: blur(2px);
-    }
+      .bg-orb {
+        position: fixed;
+        border-radius: 50%;
+        pointer-events: none;
+        z-index: -1;
+        filter: blur(2px);
+      }
 
-    .orb-1 {
-      width: 280px;
-      height: 280px;
-      background: rgba(22,119,255,.08);
-      top: 20%;
-      right: -100px;
-    }
+      .orb-1 {
+        width: 280px;
+        height: 280px;
+        background: rgba(22, 119, 255, 0.08);
+        top: 20%;
+        right: -100px;
+      }
 
-    .orb-2 {
-      width: 220px;
-      height: 220px;
-      background: rgba(115,181,255,.10);
-      bottom: 10%;
-      left: -80px;
-    }
+      .orb-2 {
+        width: 220px;
+        height: 220px;
+        background: rgba(115, 181, 255, 0.1);
+        bottom: 10%;
+        left: -80px;
+      }
 
-    .orb-3 {
-      width: 160px;
-      height: 160px;
-      background: rgba(22,119,255,.05);
-      top: 65%;
-      right: 15%;
-    }
+      .orb-3 {
+        width: 160px;
+        height: 160px;
+        background: rgba(22, 119, 255, 0.05);
+        top: 65%;
+        right: 15%;
+      }
 
-
-    /* =========================================
+      /* =========================================
        CONTAINER
     ========================================= */
 
-    .container {
-      width: min(1180px, calc(100% - 40px));
-      margin: auto;
-    }
+      .container {
+        width: min(1180px, calc(100% - 40px));
+        margin: auto;
+      }
 
-
-    /* =========================================
+      /* =========================================
        NAVBAR
     ========================================= */
 
-    nav {
-      position: sticky;
-      top: 18px;
-      z-index: 100;
-
-      width: min(1180px, calc(100% - 40px));
-      margin: 18px auto 0;
-
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      padding: 12px 16px 12px 20px;
-
-      background: rgba(255,255,255,.62);
-
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-
-      border: 1px solid rgba(255,255,255,.9);
-      border-radius: 20px;
-
-      box-shadow:
-        0 12px 35px rgba(20,70,130,.08);
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-
-      font-weight: 800;
-      color: var(--blue-900);
-    }
-
-    .brand-mark {
-      width: 38px;
-      height: 38px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 12px;
-
-      color: white;
-
-      font-family: Inter, sans-serif;
-      font-weight: 800;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue-600),
-          var(--blue-400)
-        );
-
-      box-shadow:
-        0 8px 20px rgba(22,119,255,.25);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 7px;
-      direction: rtl;
-    }
-
-    .nav-links a {
-      text-decoration: none;
-
-      color: var(--muted);
-
-      font-size: 13px;
-      font-weight: 600;
-
-      padding: 9px 13px;
-
-      border-radius: 12px;
-
-      transition: .25s ease;
-    }
-
-    .nav-links a:hover {
-      background: white;
-      color: var(--blue-600);
-
-      transform: translateY(-1px);
-    }
-
-    .nav-toggle {
-      display: none;
-
-      flex-direction: column;
-
-      justify-content: center;
-      align-items: center;
-
-      gap: 5px;
-
-      width: 40px;
-      height: 40px;
-
-      border: none;
-      border-radius: 12px;
-
-      background: rgba(255,255,255,.7);
-
-      cursor: pointer;
-
-      transition: .25s ease;
-    }
-
-    .nav-toggle:hover {
-      background: white;
-    }
-
-    .nav-toggle span {
-      display: block;
-
-      width: 20px;
-      height: 2px;
-
-      border-radius: 2px;
-
-      background: var(--blue-700);
-
-      transition: .3s ease;
-    }
-
-    .nav-toggle.active span:nth-child(1) {
-      transform: translateY(7px) rotate(45deg);
-    }
-
-    .nav-toggle.active span:nth-child(2) {
-      opacity: 0;
-    }
-
-    .nav-toggle.active span:nth-child(3) {
-      transform: translateY(-7px) rotate(-45deg);
-    }
-
-
-    /* =========================================
-       HERO
-    ========================================= */
-
-    .hero {
-      min-height: 500px;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 90px 0 70px;
-
-      position: relative;
-    }
-
-    .hero-content {
-      animation: heroIn .8s ease both;
-    }
-
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-
-      padding: 8px 14px;
-
-      border-radius: 999px;
-
-      background: rgba(255,255,255,.65);
-
-      border: 1px solid rgba(255,255,255,.9);
-
-      color: var(--blue-700);
-
-      font-size: 13px;
-      font-weight: 700;
-
-      box-shadow:
-        0 10px 30px rgba(22,119,255,.08);
-
-      margin-bottom: 22px;
-
-      animation:
-        float 4s ease-in-out infinite;
-    }
-
-    .badge-dot {
-      width: 7px;
-      height: 7px;
-
-      border-radius: 50%;
-
-      background: var(--blue-600);
-
-      box-shadow:
-        0 0 12px var(--blue-500);
-    }
-
-    .hero h1 {
-      font-family: Inter, "Cairo", sans-serif;
-
-      font-size: clamp(48px, 8vw, 92px);
-
-      line-height: .95;
-
-      letter-spacing: -4px;
-
-      color: var(--blue-950);
-
-      margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-      color: var(--blue-600);
-    }
-
-    .hero p {
-      max-width: 670px;
-
-      margin: auto;
-
-      color: var(--muted);
-
-      font-size: 17px;
-
-      line-height: 2;
-
-      font-weight: 500;
-    }
-
-    .hero-line {
-      width: 90px;
-      height: 4px;
-
-      border-radius: 20px;
-
-      background:
-        linear-gradient(
-          90deg,
-          var(--blue-400),
-          var(--blue-600)
-        );
-
-      margin: 30px auto 0;
-    }
-
-    .creator-note {
-      margin-top: 25px;
-
-      font-family: Inter, "Cairo", sans-serif;
-
-      font-size: 11px;
-
-      color: #8ba0b9;
-
-      direction: ltr;
-    }
-
-    .creator-note strong {
-      color: var(--blue-600);
-      font-weight: 700;
-    }
-
-
-    /* =========================================
-       SECTIONS
-    ========================================= */
-
-    .resource-section {
-      padding: 45px 0;
-      scroll-margin-top: 110px;
-    }
-
-    .section-heading {
-      display: flex;
-      align-items: center;
-
-      gap: 20px;
-
-      margin-bottom: 22px;
-    }
-
-    .heading-main {
-      display: flex;
-      align-items: center;
-
-      gap: 14px;
-    }
-
-    .section-number {
-      width: 45px;
-      height: 45px;
-
-      flex-shrink: 0;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 14px;
-
-      color: var(--blue-700);
-
-      background: rgba(255,255,255,.7);
-
-      border: 1px solid white;
-
-      font-family: Inter, sans-serif;
-
-      font-weight: 800;
-
-      box-shadow:
-        0 8px 25px rgba(22,119,255,.08);
-    }
-
-    .section-heading h2 {
-      font-size: 25px;
-
-      color: var(--blue-950);
-    }
-
-    .section-heading p {
-      color: var(--muted);
-
-      font-size: 13px;
-
-      margin-top: 2px;
-    }
-
-    .section-line {
-      height: 1px;
-
-      flex: 1;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(22,119,255,.18),
-          transparent
-        );
-    }
-
-
-    /* =========================================
-       CARDS
-    ========================================= */
-
-    .cards {
-      display: grid;
-
-      grid-template-columns:
-        repeat(2, 1fr);
-
-      gap: 18px;
-    }
-
-    .card {
-      position: relative;
-
-      overflow: hidden;
-
-      min-height: 180px;
-
-      padding: 23px;
-
-      display: flex;
-
-      align-items: flex-start;
-
-      gap: 17px;
-
-      text-decoration: none;
-
-      color: inherit;
-
-      background: var(--glass);
-
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-
-      border:
-        1px solid var(--glass-border);
-
-      border-radius: var(--radius);
-
-      box-shadow: var(--shadow);
-
-      transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
-    }
-
-    .card::before {
-      content: "";
-
-      position: absolute;
-
-      width: 150px;
-      height: 150px;
-
-      border-radius: 50%;
-
-      background:
-        rgba(22,119,255,.08);
-
-      top: -80px;
-      left: -50px;
-
-      transition: .4s ease;
-    }
-
-    .card::after {
-      content: "";
-
-      position: absolute;
-
-      width: 1px;
-      height: 100%;
-
-      top: 0;
-      right: 0;
-
-      background:
-        linear-gradient(
-          transparent,
-          rgba(22,119,255,.18),
-          transparent
-        );
-
-      opacity: 0;
-
-      transition: .3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-7px);
-
-      border-color:
-        rgba(22,119,255,.22);
-
-      box-shadow:
-        0 25px 60px rgba(22,119,255,.15),
-        0 10px 30px rgba(15,53,105,.07);
-    }
-
-    .card:hover::before {
-      transform: scale(2.2);
-
-      background:
-        rgba(22,119,255,.05);
-    }
-
-    .card:hover::after {
-      opacity: 1;
-    }
-
-
-    /* =========================================
-       LOGO
-    ========================================= */
-
-    .logo {
-      width: 58px;
-      height: 58px;
-
-      flex-shrink: 0;
-
-      display: grid;
-      place-items: center;
-
-      background: white;
-
-      border:
-        1px solid rgba(20,70,130,.07);
-
-      border-radius: 17px;
-
-      box-shadow:
-        0 10px 25px rgba(15,53,105,.08);
-
-      position: relative;
-
-      z-index: 1;
-
-      font-family: Inter, sans-serif;
-
-      font-size: 20px;
-
-      font-weight: 800;
-
-      color: var(--blue-700);
-    }
-
-    .logo img {
-      width: 36px;
-      height: 36px;
-
-      object-fit: contain;
-    }
-
-
-    /* =========================================
-       CARD CONTENT
-    ========================================= */
-
-    .card-content {
-      flex: 1;
-
-      position: relative;
-
-      z-index: 1;
-    }
-
-    .card h3 {
-      font-size: 18px;
-
-      color: var(--blue-950);
-
-      margin-bottom: 5px;
-
-      font-weight: 800;
-    }
-
-    .card p {
-      color: var(--muted);
-
-      font-size: 13px;
-
-      line-height: 1.8;
-
-      max-width: 480px;
-    }
-
-    .visit {
-      display: inline-flex;
-
-      align-items: center;
-
-      gap: 5px;
-
-      margin-top: 14px;
-
-      color: var(--blue-600);
-
-      font-size: 12px;
-
-      font-weight: 800;
-
-      transition: .25s ease;
-    }
-
-    .card:hover .visit {
-      gap: 10px;
-    }
-
-    .arrow {
-      display: inline-block;
-
-      font-family: Inter, sans-serif;
-
-      direction: ltr;
-
-      /* Mirrors the glyph so it points toward the RTL reading
-         direction (left) instead of away from it (right). */
-      transform: scaleX(-1);
-
-      transition: transform .25s ease;
-    }
-
-    .card:hover .arrow {
-      transform: scaleX(-1) translateX(-4px);
-    }
-
-
-    /* =========================================
-       FEATURED CARD
-    ========================================= */
-
-    .featured {
-      grid-column: 1 / -1;
-
-      min-height: 210px;
-
-      background:
-        linear-gradient(
-          135deg,
-          rgba(255,255,255,.85),
-          rgba(231,244,255,.75)
-        );
-    }
-
-    .featured .logo {
-      width: 70px;
-      height: 70px;
-
-      border-radius: 21px;
-    }
-
-    .featured .logo img {
-      width: 42px;
-      height: 42px;
-    }
-
-    .hero-cta {
-      margin-top: 34px;
-
-      text-align: right;
-    }
-
-    .cta-badge {
-      display: inline-block;
-
-      margin-bottom: 8px;
-
-      padding: 4px 12px;
-
-      border-radius: 999px;
-
-      background:
-        linear-gradient(
-          135deg,
-          var(--blue-600),
-          var(--blue-400)
-        );
-
-      color: white;
-
-      font-size: 10px;
-      font-weight: 800;
-    }
-
-
-    /* =========================================
-       DIVIDER
-    ========================================= */
-
-    .divider {
-      height: 1px;
-
-      margin: 20px 0;
-
-      background:
-        linear-gradient(
-          90deg,
-          transparent,
-          rgba(22,119,255,.14),
-          transparent
-        );
-    }
-
-
-    /* =========================================
-       FOOTER
-    ========================================= */
-
-    footer {
-      margin-top: 70px;
-
-      padding: 55px 0 35px;
-
-      background:
-        linear-gradient(
-          180deg,
-          transparent,
-          rgba(210,232,255,.4)
-        );
-
-      text-align: center;
-    }
-
-    .footer-logo {
-      width: 45px;
-      height: 45px;
-
-      margin: 0 auto 15px;
-
-      display: grid;
-      place-items: center;
-
-      border-radius: 14px;
-
-      background: var(--blue-600);
-
-      color: white;
-
-      font-family: Inter, sans-serif;
-
-      font-weight: 800;
-
-      box-shadow:
-        0 10px 25px rgba(22,119,255,.2);
-    }
-
-    footer h3 {
-      color: var(--blue-950);
-
-      margin-bottom: 5px;
-    }
-
-    footer > .container > p {
-      color: var(--muted);
-
-      font-size: 12px;
-    }
-
-
-    /* =========================================
-       DEVELOPER CREDIT
-    ========================================= */
-
-    .developer-credit {
-      margin: 28px auto 0;
-
-      width: fit-content;
-
-      min-width: 310px;
-
-      padding: 16px 28px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      align-items: center;
-
-      gap: 2px;
-
-      background:
-        rgba(255,255,255,.58);
-
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-
-      border:
-        1px solid rgba(255,255,255,.9);
-
-      border-radius: 18px;
-
-      box-shadow:
-        0 12px 35px rgba(22,119,255,.08);
-
-      transition: .3s ease;
-    }
-
-    .developer-credit:hover {
-      transform: translateY(-4px);
-
-      box-shadow:
-        0 18px 45px rgba(22,119,255,.13);
-    }
-
-    .credit-label {
-      font-family: Inter, "Cairo", sans-serif;
-
-      font-size: 10px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 1.5px;
-
-      color: #8ba0bb;
-
-      direction: ltr;
-    }
-
-    .developer-credit strong {
-      font-size: 20px;
-
-      font-weight: 800;
-
-      color: var(--blue-700);
-    }
-
-    .credit-role {
-      font-family: Inter, "Cairo", sans-serif;
-
-      font-size: 10px;
-
-      color: var(--muted);
-
-      direction: ltr;
-    }
-
-    .signature {
-      margin-top: 18px;
-
-      font-family: Inter, sans-serif;
-
-      font-size: 10px;
-
-      color: #9aabc0;
-
-      direction: ltr;
-    }
-
-
-    /* =========================================
-       SCROLLBAR
-    ========================================= */
-
-    ::-webkit-scrollbar {
-      width: 8px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #eef7ff;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background:
-        linear-gradient(
-          var(--blue-400),
-          var(--blue-600)
-        );
-
-      border-radius: 20px;
-    }
-
-
-    /* =========================================
-       ACCESSIBILITY
-    ========================================= */
-
-    a:focus-visible,
-    button:focus-visible {
-      outline: 2px solid var(--blue-600);
-      outline-offset: 3px;
-      border-radius: 8px;
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration: .01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: .01ms !important;
-      }
-
-    }
-
-
-    /* =========================================
-       ANIMATIONS
-    ========================================= */
-
-    @keyframes float {
-
-      0%, 100% {
-        transform: translateY(0);
-      }
-
-      50% {
-        transform: translateY(-5px);
-      }
-
-    }
-
-    @keyframes heroIn {
-
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-
-    }
-
-
-    /* =========================================
-       RESPONSIVE
-    ========================================= */
-
-    @media (max-width: 750px) {
-
-      .container {
-        width:
-          min(
-            100% - 26px,
-            600px
-          );
-      }
-
       nav {
-        width:
-          calc(100% - 26px);
-      }
+        position: sticky;
+        top: 18px;
+        z-index: 100;
 
-      .nav-toggle {
+        width: min(1180px, calc(100% - 40px));
+        margin: 18px auto 0;
+
         display: flex;
-      }
+        align-items: center;
+        justify-content: space-between;
 
-      .nav-links {
-        display: flex;
-        flex-direction: column;
+        padding: 12px 16px 12px 20px;
 
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 16px;
-        right: 16px;
-
-        padding: 10px;
-
-        background: rgba(255,255,255,.94);
+        background: rgba(255, 255, 255, 0.62);
 
         backdrop-filter: blur(20px);
         -webkit-backdrop-filter: blur(20px);
 
-        border: 1px solid rgba(255,255,255,.9);
-        border-radius: 16px;
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
 
-        box-shadow: 0 20px 45px rgba(20,70,130,.16);
-
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(-8px);
-
-        transition: .25s ease;
-
-        pointer-events: none;
+        box-shadow: 0 12px 35px rgba(20, 70, 130, 0.08);
       }
 
-      .nav-links.open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 11px;
 
-        pointer-events: auto;
+        font-weight: 800;
+        color: var(--blue-900);
+      }
+
+      .brand-mark {
+        width: 38px;
+        height: 38px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 12px;
+
+        color: white;
+
+        font-family: Inter, sans-serif;
+        font-weight: 800;
+
+        background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+
+        box-shadow: 0 8px 20px rgba(22, 119, 255, 0.25);
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 7px;
+        direction: rtl;
       }
 
       .nav-links a {
-        text-align: center;
-        padding: 12px 14px;
+        text-decoration: none;
+
+        color: var(--muted);
+
+        font-size: 13px;
+        font-weight: 600;
+
+        padding: 9px 13px;
+
+        border-radius: 12px;
+
+        transition: 0.25s ease;
       }
 
-      .hero {
-        min-height: 430px;
+      .nav-links a:hover {
+        background: white;
+        color: var(--blue-600);
 
-        padding:
-          70px 0 50px;
+        transform: translateY(-1px);
+      }
+
+      .nav-toggle {
+        display: none;
+
+        flex-direction: column;
+
+        justify-content: center;
+        align-items: center;
+
+        gap: 5px;
+
+        width: 40px;
+        height: 40px;
+
+        border: none;
+        border-radius: 12px;
+
+        background: rgba(255, 255, 255, 0.7);
+
+        cursor: pointer;
+
+        transition: 0.25s ease;
+      }
+
+      .nav-toggle:hover {
+        background: white;
+      }
+
+      .nav-toggle span {
+        display: block;
+
+        width: 20px;
+        height: 2px;
+
+        border-radius: 2px;
+
+        background: var(--blue-700);
+
+        transition: 0.3s ease;
+      }
+
+      .nav-toggle.active span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .nav-toggle.active span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      /* =========================================
+       HERO
+    ========================================= */
+
+      .hero {
+        min-height: 500px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        padding: 90px 0 70px;
+
+        position: relative;
+      }
+
+      .hero-content {
+        animation: heroIn 0.8s ease both;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+
+        padding: 8px 14px;
+
+        border-radius: 999px;
+
+        background: rgba(255, 255, 255, 0.65);
+
+        border: 1px solid rgba(255, 255, 255, 0.9);
+
+        color: var(--blue-700);
+
+        font-size: 13px;
+        font-weight: 700;
+
+        box-shadow: 0 10px 30px rgba(22, 119, 255, 0.08);
+
+        margin-bottom: 22px;
+
+        animation: float 4s ease-in-out infinite;
+      }
+
+      .badge-dot {
+        width: 7px;
+        height: 7px;
+
+        border-radius: 50%;
+
+        background: var(--blue-600);
+
+        box-shadow: 0 0 12px var(--blue-500);
       }
 
       .hero h1 {
-        font-size: 54px;
+        font-family: Inter, "Cairo", sans-serif;
 
-        letter-spacing: -2px;
+        font-size: clamp(48px, 8vw, 92px);
+
+        line-height: 0.95;
+
+        letter-spacing: -4px;
+
+        color: var(--blue-950);
+
+        margin-bottom: 25px;
+      }
+
+      .hero h1 span {
+        color: var(--blue-600);
       }
 
       .hero p {
-        font-size: 14px;
+        max-width: 670px;
+
+        margin: auto;
+
+        color: var(--muted);
+
+        font-size: 17px;
+
+        line-height: 2;
+
+        font-weight: 500;
+      }
+
+      .hero-line {
+        width: 90px;
+        height: 4px;
+
+        border-radius: 20px;
+
+        background: linear-gradient(90deg, var(--blue-400), var(--blue-600));
+
+        margin: 30px auto 0;
       }
 
       .creator-note {
-        font-size: 10px;
+        margin-top: 25px;
+
+        font-family: Inter, "Cairo", sans-serif;
+
+        font-size: 11px;
+
+        color: #8ba0b9;
+
+        direction: ltr;
       }
 
-      .cards {
-        grid-template-columns: 1fr;
+      .creator-note strong {
+        color: var(--blue-600);
+        font-weight: 700;
       }
 
-      .featured {
-        grid-column: auto;
-      }
+      /* =========================================
+       SECTIONS
+    ========================================= */
 
-      .section-line {
-        display: none;
+      .resource-section {
+        padding: 45px 0;
+        scroll-margin-top: 110px;
       }
 
       .section-heading {
-        margin-bottom: 16px;
+        display: flex;
+        align-items: center;
+
+        gap: 20px;
+
+        margin-bottom: 22px;
+      }
+
+      .heading-main {
+        display: flex;
+        align-items: center;
+
+        gap: 14px;
+      }
+
+      .section-number {
+        width: 45px;
+        height: 45px;
+
+        flex-shrink: 0;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 14px;
+
+        color: var(--blue-700);
+
+        background: rgba(255, 255, 255, 0.7);
+
+        border: 1px solid white;
+
+        font-family: Inter, sans-serif;
+
+        font-weight: 800;
+
+        box-shadow: 0 8px 25px rgba(22, 119, 255, 0.08);
       }
 
       .section-heading h2 {
-        font-size: 21px;
+        font-size: 25px;
+
+        color: var(--blue-950);
       }
 
-      .card {
-        padding: 19px;
+      .section-heading p {
+        color: var(--muted);
+
+        font-size: 13px;
+
+        margin-top: 2px;
       }
 
-      .developer-credit {
-        min-width: 0;
-        width: 100%;
+      .section-line {
+        height: 1px;
+
+        flex: 1;
+
+        background: linear-gradient(
+          90deg,
+          rgba(22, 119, 255, 0.18),
+          transparent
+        );
       }
 
-    }
-
-
-    /* =========================================
-       VERY SMALL SCREENS
+      /* =========================================
+       CARDS
     ========================================= */
 
-    @media (max-width: 420px) {
+      .cards {
+        display: grid;
 
-      .hero h1 {
-        font-size: 45px;
-      }
+        grid-template-columns: repeat(2, 1fr);
 
-      .hero p {
-        font-size: 13px;
+        gap: 18px;
       }
 
       .card {
-        gap: 12px;
+        position: relative;
+
+        overflow: hidden;
+
+        min-height: 180px;
+
+        padding: 23px;
+
+        display: flex;
+
+        align-items: flex-start;
+
+        gap: 17px;
+
+        text-decoration: none;
+
+        color: inherit;
+
+        background: var(--glass);
+
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+
+        border: 1px solid var(--glass-border);
+
+        border-radius: var(--radius);
+
+        box-shadow: var(--shadow);
+
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease,
+          border-color 0.3s ease;
       }
 
+      .card::before {
+        content: "";
+
+        position: absolute;
+
+        width: 150px;
+        height: 150px;
+
+        border-radius: 50%;
+
+        background: rgba(22, 119, 255, 0.08);
+
+        top: -80px;
+        left: -50px;
+
+        transition: 0.4s ease;
+      }
+
+      .card::after {
+        content: "";
+
+        position: absolute;
+
+        width: 1px;
+        height: 100%;
+
+        top: 0;
+        right: 0;
+
+        background: linear-gradient(
+          transparent,
+          rgba(22, 119, 255, 0.18),
+          transparent
+        );
+
+        opacity: 0;
+
+        transition: 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-7px);
+
+        border-color: rgba(22, 119, 255, 0.22);
+
+        box-shadow:
+          0 25px 60px rgba(22, 119, 255, 0.15),
+          0 10px 30px rgba(15, 53, 105, 0.07);
+      }
+
+      .card:hover::before {
+        transform: scale(2.2);
+
+        background: rgba(22, 119, 255, 0.05);
+      }
+
+      .card:hover::after {
+        opacity: 1;
+      }
+
+      /* =========================================
+       LOGO
+    ========================================= */
+
       .logo {
-        width: 50px;
-        height: 50px;
+        width: 58px;
+        height: 58px;
+
+        flex-shrink: 0;
+
+        display: grid;
+        place-items: center;
+
+        background: white;
+
+        border: 1px solid rgba(20, 70, 130, 0.07);
+
+        border-radius: 17px;
+
+        box-shadow: 0 10px 25px rgba(15, 53, 105, 0.08);
+
+        position: relative;
+
+        z-index: 1;
+
+        font-family: Inter, sans-serif;
+
+        font-size: 20px;
+
+        font-weight: 800;
+
+        color: var(--blue-700);
+      }
+
+      .logo img {
+        width: 36px;
+        height: 36px;
+
+        object-fit: contain;
+      }
+
+      /* =========================================
+       CARD CONTENT
+    ========================================= */
+
+      .card-content {
+        flex: 1;
+
+        position: relative;
+
+        z-index: 1;
       }
 
       .card h3 {
-        font-size: 16px;
+        font-size: 18px;
+
+        color: var(--blue-950);
+
+        margin-bottom: 5px;
+
+        font-weight: 800;
       }
 
       .card p {
+        color: var(--muted);
+
+        font-size: 13px;
+
+        line-height: 1.8;
+
+        max-width: 480px;
+      }
+
+      .visit {
+        display: inline-flex;
+
+        align-items: center;
+
+        gap: 5px;
+
+        margin-top: 14px;
+
+        color: var(--blue-600);
+
+        font-size: 12px;
+
+        font-weight: 800;
+
+        transition: 0.25s ease;
+      }
+
+      .card:hover .visit {
+        gap: 10px;
+      }
+
+      .arrow {
+        display: inline-block;
+
+        font-family: Inter, sans-serif;
+
+        direction: ltr;
+
+        /* Mirrors the glyph so it points toward the RTL reading
+         direction (left) instead of away from it (right). */
+        transform: scaleX(-1);
+
+        transition: transform 0.25s ease;
+      }
+
+      .card:hover .arrow {
+        transform: scaleX(-1) translateX(-4px);
+      }
+
+      /* =========================================
+       FEATURED CARD
+    ========================================= */
+
+      .featured {
+        grid-column: 1 / -1;
+
+        min-height: 210px;
+
+        background: linear-gradient(
+          135deg,
+          rgba(255, 255, 255, 0.85),
+          rgba(231, 244, 255, 0.75)
+        );
+      }
+
+      .featured .logo {
+        width: 70px;
+        height: 70px;
+
+        border-radius: 21px;
+      }
+
+      .featured .logo img {
+        width: 42px;
+        height: 42px;
+      }
+
+      .hero-cta {
+        margin-top: 34px;
+
+        text-align: right;
+      }
+
+      .cta-badge {
+        display: inline-block;
+
+        margin-bottom: 8px;
+
+        padding: 4px 12px;
+
+        border-radius: 999px;
+
+        background: linear-gradient(135deg, var(--blue-600), var(--blue-400));
+
+        color: white;
+
+        font-size: 10px;
+        font-weight: 800;
+      }
+
+      /* =========================================
+       DIVIDER
+    ========================================= */
+
+      .divider {
+        height: 1px;
+
+        margin: 20px 0;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(22, 119, 255, 0.14),
+          transparent
+        );
+      }
+
+      /* =========================================
+       FOOTER
+    ========================================= */
+
+      footer {
+        margin-top: 70px;
+
+        padding: 55px 0 35px;
+
+        background: linear-gradient(
+          180deg,
+          transparent,
+          rgba(210, 232, 255, 0.4)
+        );
+
+        text-align: center;
+      }
+
+      .footer-logo {
+        width: 45px;
+        height: 45px;
+
+        margin: 0 auto 15px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 14px;
+
+        background: var(--blue-600);
+
+        color: white;
+
+        font-family: Inter, sans-serif;
+
+        font-weight: 800;
+
+        box-shadow: 0 10px 25px rgba(22, 119, 255, 0.2);
+      }
+
+      footer h3 {
+        color: var(--blue-950);
+
+        margin-bottom: 5px;
+      }
+
+      footer > .container > p {
+        color: var(--muted);
+
         font-size: 12px;
       }
 
-    }
+      /* =========================================
+       DEVELOPER CREDIT
+    ========================================= */
 
-  </style>
-</head>
+      .developer-credit {
+        margin: 28px auto 0;
 
+        width: fit-content;
 
-<body>
+        min-width: 310px;
 
+        padding: 16px 28px;
 
-  <!-- =========================================
+        display: flex;
+
+        flex-direction: column;
+
+        align-items: center;
+
+        gap: 2px;
+
+        background: rgba(255, 255, 255, 0.58);
+
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+
+        border: 1px solid rgba(255, 255, 255, 0.9);
+
+        border-radius: 18px;
+
+        box-shadow: 0 12px 35px rgba(22, 119, 255, 0.08);
+
+        transition: 0.3s ease;
+      }
+
+      .developer-credit:hover {
+        transform: translateY(-4px);
+
+        box-shadow: 0 18px 45px rgba(22, 119, 255, 0.13);
+      }
+
+      .credit-label {
+        font-family: Inter, "Cairo", sans-serif;
+
+        font-size: 10px;
+
+        text-transform: uppercase;
+
+        letter-spacing: 1.5px;
+
+        color: #8ba0bb;
+
+        direction: ltr;
+      }
+
+      .developer-credit strong {
+        font-size: 20px;
+
+        font-weight: 800;
+
+        color: var(--blue-700);
+      }
+
+      .credit-role {
+        font-family: Inter, "Cairo", sans-serif;
+
+        font-size: 10px;
+
+        color: var(--muted);
+
+        direction: ltr;
+      }
+
+      .signature {
+        margin-top: 18px;
+
+        font-family: Inter, sans-serif;
+
+        font-size: 10px;
+
+        color: #9aabc0;
+
+        direction: ltr;
+      }
+
+      /* =========================================
+       SCROLLBAR
+    ========================================= */
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: #eef7ff;
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(var(--blue-400), var(--blue-600));
+
+        border-radius: 20px;
+      }
+
+      /* =========================================
+       ACCESSIBILITY
+    ========================================= */
+
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--blue-600);
+        outline-offset: 3px;
+        border-radius: 8px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      /* =========================================
+       ANIMATIONS
+    ========================================= */
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-5px);
+        }
+      }
+
+      @keyframes heroIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* =========================================
+       RESPONSIVE
+    ========================================= */
+
+      @media (max-width: 750px) {
+        .container {
+          width: min(100% - 26px, 600px);
+        }
+
+        nav {
+          width: calc(100% - 26px);
+        }
+
+        .nav-toggle {
+          display: flex;
+        }
+
+        .nav-links {
+          display: flex;
+          flex-direction: column;
+
+          position: absolute;
+          top: calc(100% + 10px);
+          left: 16px;
+          right: 16px;
+
+          padding: 10px;
+
+          background: rgba(255, 255, 255, 0.94);
+
+          backdrop-filter: blur(20px);
+          -webkit-backdrop-filter: blur(20px);
+
+          border: 1px solid rgba(255, 255, 255, 0.9);
+          border-radius: 16px;
+
+          box-shadow: 0 20px 45px rgba(20, 70, 130, 0.16);
+
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-8px);
+
+          transition: 0.25s ease;
+
+          pointer-events: none;
+        }
+
+        .nav-links.open {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+
+          pointer-events: auto;
+        }
+
+        .nav-links a {
+          text-align: center;
+          padding: 12px 14px;
+        }
+
+        .hero {
+          min-height: 430px;
+
+          padding: 70px 0 50px;
+        }
+
+        .hero h1 {
+          font-size: 54px;
+
+          letter-spacing: -2px;
+        }
+
+        .hero p {
+          font-size: 14px;
+        }
+
+        .creator-note {
+          font-size: 10px;
+        }
+
+        .cards {
+          grid-template-columns: 1fr;
+        }
+
+        .featured {
+          grid-column: auto;
+        }
+
+        .section-line {
+          display: none;
+        }
+
+        .section-heading {
+          margin-bottom: 16px;
+        }
+
+        .section-heading h2 {
+          font-size: 21px;
+        }
+
+        .card {
+          padding: 19px;
+        }
+
+        .developer-credit {
+          min-width: 0;
+          width: 100%;
+        }
+      }
+
+      /* =========================================
+       VERY SMALL SCREENS
+    ========================================= */
+
+      @media (max-width: 420px) {
+        .hero h1 {
+          font-size: 45px;
+        }
+
+        .hero p {
+          font-size: 13px;
+        }
+
+        .card {
+          gap: 12px;
+        }
+
+        .logo {
+          width: 50px;
+          height: 50px;
+        }
+
+        .card h3 {
+          font-size: 16px;
+        }
+
+        .card p {
+          font-size: 12px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- =========================================
        BACKGROUND
   ========================================= -->
 
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-  <div class="bg-orb orb-3"></div>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
 
-
-  <!-- =========================================
+    <!-- =========================================
        NAVBAR
   ========================================= -->
 
-  <nav>
+    <nav>
+      <div class="brand">
+        <div class="brand-mark">A</div>
 
-    <div class="brand">
-
-      <div class="brand-mark">
-        A
+        <span> Visual Resources </span>
       </div>
 
-      <span>
-        Visual Resources
-      </span>
+      <button
+        class="nav-toggle"
+        id="navToggle"
+        type="button"
+        aria-expanded="false"
+        aria-controls="navLinks"
+        aria-label="فتح قائمة التنقل"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
 
-    </div>
+      <div class="nav-links" id="navLinks">
+        <a href="#colors"> الألوان </a>
 
+        <a href="#inspiration"> التغذية البصرية </a>
 
-    <button
-      class="nav-toggle"
-      id="navToggle"
-      type="button"
-      aria-expanded="false"
-      aria-controls="navLinks"
-      aria-label="فتح قائمة التنقل"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+        <a href="#fonts"> الخطوط </a>
 
+        <a href="#elements"> العناصر </a>
 
-    <div class="nav-links" id="navLinks">
+        <a href="#google"> Google </a>
+      </div>
+    </nav>
 
-      <a href="#colors">
-        الألوان
-      </a>
-
-      <a href="#inspiration">
-        التغذية البصرية
-      </a>
-
-      <a href="#fonts">
-        الخطوط
-      </a>
-
-      <a href="#elements">
-        العناصر
-      </a>
-
-      <a href="#google">
-        Google
-      </a>
-
-    </div>
-
-  </nav>
-
-
-
-  <!-- =========================================
+    <!-- =========================================
        HERO
   ========================================= -->
 
-  <header class="hero">
+    <header class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="badge-dot"></span>
 
-    <div class="container">
-
-      <div class="hero-content">
-
-        <div class="hero-badge">
-
-          <span class="badge-dot"></span>
-
-          Visual Design Toolkit
-
-        </div>
-
-
-        <h1>
-
-          See.
-          <span>Think.</span>
-          Design.
-
-        </h1>
-
-
-        <p>
-
-          مجموعة مختارة من أهم الأدوات والمصادر
-          التي تساعدك على بناء عين بصرية أقوى،
-          واختيار الألوان والخطوط، واستلهام أفكار
-          جديدة لتصميم واجهاتك ومشاريعك.
-
-        </p>
-
-
-        <div class="hero-line"></div>
-
-
-        <div class="creator-note">
-
-          Designed & Developed by
-          <strong>Abdul Rahman Al-Azem</strong>
-
-        </div>
-
-
-        <a
-          class="card featured hero-cta"
-          href="slides.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            ٠٢
+            Visual Design Toolkit
           </div>
 
-          <div class="card-content">
+          <h1>
+            See.
+            <span>Think.</span>
+            Design.
+          </h1>
 
-            <span class="cta-badge">
-              مواد الجلسة
-            </span>
+          <p>
+            مجموعة مختارة من أهم الأدوات والمصادر التي تساعدك على بناء عين بصرية
+            أقوى، واختيار الألوان والخطوط، واستلهام أفكار جديدة لتصميم واجهاتك
+            ومشاريعك.
+          </p>
 
-            <h3>
-              سلايدات الجلسة الثانية
-            </h3>
+          <div class="hero-line"></div>
 
-            <p>
-              مجموعة من السلايدات التي تم عرضها في الجلسة الثانية
-              والتي تحتوي على أهم الأدوات والمصادر التي تساعدك على بناء عين بصرية أقوى،
-              واختيار الألوان والخطوط، واستلهام أفكار جديدة لتصميم واجهاتك ومشاريعك.
-            </p>
+          <div class="creator-note">
+            Designed & Developed by
+            <strong>Abdul Rahman Al-Azem</strong>
+          </div>
 
-            <div class="visit">
+          <a
+            class="card featured hero-cta"
+            href="slides.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">٠٢</div>
 
-              استكشف الموقع
+            <div class="card-content">
+              <span class="cta-badge"> مواد الجلسة </span>
 
-              <span class="arrow">
-                →
-              </span>
+              <h3>سلايدات الجلسة الثانية</h3>
 
+              <p>
+                مجموعة من السلايدات التي تم عرضها في الجلسة الثانية والتي تحتوي
+                على أهم الأدوات والمصادر التي تساعدك على بناء عين بصرية أقوى،
+                واختيار الألوان والخطوط، واستلهام أفكار جديدة لتصميم واجهاتك
+                ومشاريعك.
+              </p>
+
+              <div class="visit">
+                استكشف الموقع
+
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
 
-          </div>
+          <a
+            class="card featured hero-cta"
+            href="slides3.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">٠٢</div>
 
-        </a>
+            <div class="card-content">
+              <span class="cta-badge"> مواد الجلسة </span>
 
-        <a
-          class="card featured hero-cta"
-          href="slides3.html"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+              <h3>سلايدات الجلسةالثالثة</h3>
 
-          <div class="logo">
-            ٠٢
-          </div>
+              <p>
+                مجموعة من السلايدات التي تم عرضها في الجلسة الثالثة والتي تحتوي
+                على كتابة محتوى قسم المشاريع وتذييل الصفحة
+              </p>
 
-          <div class="card-content">
+              <div class="visit">
+                استكشف الموقع
 
-            <span class="cta-badge">
-              مواد الجلسة
-            </span>
-
-            <h3>
-              سلايدات الجلسةالثالثة
-            </h3>
-
-            <p>
-              مجموعة من السلايدات التي تم عرضها في الجلسة الثالثة
-              والتي تحتوي على كتابة محتوى قسم المشاريع وتذييل الصفحة 
-            </p>
-
-            <div class="visit">
-
-              استكشف الموقع
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
-
-          </div>
-
-        </a>
-
+          </a>
+        </div>
       </div>
+    </header>
 
-    </div>
-
-  </header>
-
-
-
-  <!-- =========================================
+    <!-- =========================================
        MAIN
   ========================================= -->
 
-  <main class="container">
-
-
-
-    <!-- =======================================
+    <main class="container">
+      <!-- =======================================
          COLORS
     ======================================== -->
 
-    <section
-      class="resource-section"
-      id="colors"
-    >
+      <section class="resource-section" id="colors">
+        <div class="section-heading">
+          <div class="heading-main">
+            <div class="section-number">01</div>
 
-      <div class="section-heading">
+            <div>
+              <h2>ألوان 🎨</h2>
 
-        <div class="heading-main">
-
-          <div class="section-number">
-            01
+              <p>اكتشف، جرّب وابنِ لوحة ألوان متناسقة</p>
+            </div>
           </div>
 
-          <div>
-
-            <h2>
-              ألوان 🎨
-            </h2>
-
-            <p>
-              اكتشف، جرّب وابنِ لوحة ألوان متناسقة
-            </p>
-
-          </div>
-
+          <div class="section-line"></div>
         </div>
 
-        <div class="section-line"></div>
+        <div class="cards">
+          <!-- COLOR HUNT -->
 
-      </div>
+          <a
+            class="card"
+            href="https://colorhunt.co/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">CH</div>
 
+            <div class="card-content">
+              <h3>Color Hunt</h3>
 
-      <div class="cards">
+              <p>
+                مكتبة ضخمة من لوحات الألوان الجاهزة والمنسقة لمساعدتك على اكتشاف
+                Combinations جديدة بسرعة.
+              </p>
 
+              <div class="visit">
+                استكشف الموقع
 
-        <!-- COLOR HUNT -->
-
-        <a
-          class="card"
-          href="https://colorhunt.co/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            CH
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Color Hunt
-            </h3>
-
-            <p>
-              مكتبة ضخمة من لوحات الألوان الجاهزة
-              والمنسقة لمساعدتك على اكتشاف
-              Combinations جديدة بسرعة.
-            </p>
-
-            <div class="visit">
-
-              استكشف الموقع
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
 
-          </div>
+          <!-- COOLORS -->
 
-        </a>
+          <a
+            class="card"
+            href="https://coolors.co/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">C</div>
 
+            <div class="card-content">
+              <h3>Coolors</h3>
 
+              <p>
+                أداة تفاعلية لإنشاء وتوليد لوحات ألوان وتجربة الانسجام بين
+                الألوان بسرعة وسهولة.
+              </p>
 
-        <!-- COOLORS -->
+              <div class="visit">
+                ابدأ اختيار الألوان
 
-        <a
-          class="card"
-          href="https://coolors.co/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            C
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Coolors
-            </h3>
-
-            <p>
-              أداة تفاعلية لإنشاء وتوليد لوحات
-              ألوان وتجربة الانسجام بين الألوان
-              بسرعة وسهولة.
-            </p>
-
-            <div class="visit">
-
-              ابدأ اختيار الألوان
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
+        </div>
+      </section>
 
-          </div>
+      <div class="divider"></div>
 
-        </a>
-
-      </div>
-
-    </section>
-
-
-
-    <div class="divider"></div>
-
-
-
-    <!-- =======================================
+      <!-- =======================================
          VISUAL INSPIRATION
     ======================================== -->
 
-    <section
-      class="resource-section"
-      id="inspiration"
-    >
+      <section class="resource-section" id="inspiration">
+        <div class="section-heading">
+          <div class="heading-main">
+            <div class="section-number">02</div>
 
-      <div class="section-heading">
+            <div>
+              <h2>التغذية البصرية 👁️</h2>
 
-        <div class="heading-main">
-
-          <div class="section-number">
-            02
+              <p>درّب عينك قبل أن تبدأ بالتصميم</p>
+            </div>
           </div>
 
-          <div>
-
-            <h2>
-              التغذية البصرية 👁️
-            </h2>
-
-            <p>
-              درّب عينك قبل أن تبدأ بالتصميم
-            </p>
-
-          </div>
-
+          <div class="section-line"></div>
         </div>
 
-        <div class="section-line"></div>
+        <div class="cards">
+          <!-- AWWWARDS -->
 
-      </div>
+          <a
+            class="card featured"
+            href="https://www.awwwards.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">Aww</div>
 
+            <div class="card-content">
+              <h3>Awwwards</h3>
 
-      <div class="cards">
+              <p>
+                شاهد مواقع وتجارب رقمية حاصلة على جوائز. ممتاز لفهم الـ Layout
+                والحركة والـ Interaction والـ Art Direction.
+              </p>
 
+              <div class="visit">
+                اكتشف مواقع مميزة
 
-        <!-- AWWWARDS -->
-
-        <a
-          class="card featured"
-          href="https://www.awwwards.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            Aww
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Awwwards
-            </h3>
-
-            <p>
-              شاهد مواقع وتجارب رقمية حاصلة على جوائز.
-              ممتاز لفهم الـ Layout والحركة والـ Interaction
-              والـ Art Direction.
-            </p>
-
-            <div class="visit">
-
-              اكتشف مواقع مميزة
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
 
-          </div>
+          <!-- BEHANCE -->
 
-        </a>
+          <a
+            class="card"
+            href="https://www.behance.net/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">Bē</div>
 
+            <div class="card-content">
+              <h3>Behance</h3>
 
+              <p>
+                منصة لاستكشاف مشاريع المصممين والـ Case Studies والهويات البصرية
+                وتجارب UI/UX.
+              </p>
 
-        <!-- BEHANCE -->
+              <div class="visit">
+                استكشف المشاريع
 
-        <a
-          class="card"
-          href="https://www.behance.net/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            Bē
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Behance
-            </h3>
-
-            <p>
-              منصة لاستكشاف مشاريع المصممين والـ Case Studies
-              والهويات البصرية وتجارب UI/UX.
-            </p>
-
-            <div class="visit">
-
-              استكشف المشاريع
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
 
-          </div>
+          <!-- DRIBBBLE -->
 
-        </a>
+          <a
+            class="card"
+            href="https://dribbble.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">Dr</div>
 
+            <div class="card-content">
+              <h3>Dribbble</h3>
 
+              <p>
+                مصدر سريع لأفكار UI والشاشات والأيقونات والـ Micro-interactions
+                والتفاصيل البصرية.
+              </p>
 
-        <!-- DRIBBBLE -->
+              <div class="visit">
+                شاهد التصميمات
 
-        <a
-          class="card"
-          href="https://dribbble.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            Dr
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Dribbble
-            </h3>
-
-            <p>
-              مصدر سريع لأفكار UI والشاشات والأيقونات
-              والـ Micro-interactions والتفاصيل البصرية.
-            </p>
-
-            <div class="visit">
-
-              شاهد التصميمات
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
 
-          </div>
+          <!-- PINTEREST UI -->
 
-        </a>
+          <a
+            class="card"
+            href="https://www.pinterest.com/search/pins/?q=ui&rs=typed"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">P</div>
 
+            <div class="card-content">
+              <h3>Pinterest — UI</h3>
 
+              <p>
+                استخدم البحث البصري لجمع References وإنشاء Moodboards واستكشاف
+                اتجاهات التصميم المختلفة.
+              </p>
 
-        <!-- PINTEREST UI -->
+              <div class="visit">
+                ابحث عن الإلهام
 
-        <a
-          class="card"
-          href="https://www.pinterest.com/search/pins/?q=ui&rs=typed"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            P
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Pinterest — UI
-            </h3>
-
-            <p>
-              استخدم البحث البصري لجمع References
-              وإنشاء Moodboards واستكشاف اتجاهات
-              التصميم المختلفة.
-            </p>
-
-            <div class="visit">
-
-              ابحث عن الإلهام
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
+        </div>
+      </section>
 
-          </div>
+      <div class="divider"></div>
 
-        </a>
-
-      </div>
-
-    </section>
-
-
-
-    <div class="divider"></div>
-
-
-
-    <!-- =======================================
+      <!-- =======================================
          FONTS
     ======================================== -->
 
-    <section
-      class="resource-section"
-      id="fonts"
-    >
+      <section class="resource-section" id="fonts">
+        <div class="section-heading">
+          <div class="heading-main">
+            <div class="section-number">03</div>
 
-      <div class="section-heading">
+            <div>
+              <h2>الخطوط ✍️</h2>
 
-        <div class="heading-main">
-
-          <div class="section-number">
-            03
+              <p>Typography تصنع شخصية التصميم</p>
+            </div>
           </div>
 
-          <div>
-
-            <h2>
-              الخطوط ✍️
-            </h2>
-
-            <p>
-              Typography تصنع شخصية التصميم
-            </p>
-
-          </div>
-
+          <div class="section-line"></div>
         </div>
 
-        <div class="section-line"></div>
+        <div class="cards">
+          <!-- PINTEREST TYPOGRAPHY -->
 
-      </div>
+          <a
+            class="card"
+            href="https://www.pinterest.com/search/pins/?q=typography&rs=ac&len=7&source_id=ac_GVzsziET&eq=typogra&etslf=7912"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">T</div>
 
+            <div class="card-content">
+              <h3>Pinterest — Typography</h3>
 
-      <div class="cards">
+              <p>
+                استكشف أمثلة وتنسيقات Typography مختلفة وابحث عن أفكار لتوزيع
+                النصوص والعناوين.
+              </p>
 
+              <div class="visit">
+                استكشف Typography
 
-        <!-- PINTEREST TYPOGRAPHY -->
-
-        <a
-          class="card"
-          href="https://www.pinterest.com/search/pins/?q=typography&rs=ac&len=7&source_id=ac_GVzsziET&eq=typogra&etslf=7912"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            T
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Pinterest — Typography
-            </h3>
-
-            <p>
-              استكشف أمثلة وتنسيقات Typography مختلفة
-              وابحث عن أفكار لتوزيع النصوص والعناوين.
-            </p>
-
-            <div class="visit">
-
-              استكشف Typography
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
 
-          </div>
+          <!-- GOOGLE FONTS -->
 
-        </a>
+          <a
+            class="card"
+            href="https://fonts.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">G</div>
 
+            <div class="card-content">
+              <h3>Google Fonts</h3>
 
+              <p>
+                مكتبة مجانية ضخمة من الخطوط المناسبة للويب والتصميم، مع إمكانية
+                معاينة وتحميل الخطوط.
+              </p>
 
-        <!-- GOOGLE FONTS -->
+              <div class="visit">
+                ابحث عن خط
 
-        <a
-          class="card"
-          href="https://fonts.google.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            G
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Google Fonts
-            </h3>
-
-            <p>
-              مكتبة مجانية ضخمة من الخطوط المناسبة
-              للويب والتصميم، مع إمكانية معاينة
-              وتحميل الخطوط.
-            </p>
-
-            <div class="visit">
-
-              ابحث عن خط
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
+        </div>
+      </section>
 
+      <div class="divider"></div>
+
+      <!-- =======================================
+         COLORS
+    ======================================== -->
+
+      <section class="resource-section" id="colors">
+        <div class="section-heading">
+          <div class="heading-main">
+            <div class="section-number">01</div>
+
+            <div>
+              <h2>تجربة المستخدم 🧠</h2>
+
+              <p>تعلم من أسوأ تجارب المستخدم</p>
+            </div>
           </div>
 
-        </a>
+          <div class="section-line"></div>
+        </div>
 
-      </div>
+        <div class="cards">
+          <!-- WORST PORTFOLIO EVER SHOWCASE -->
 
-    </section>
+          <a
+            class="card"
+            href="worst_portfolio_ever_showcase.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">wp</div>
 
+            <div class="card-content">
+              <h3>Worst portfolio ever showcase</h3>
 
+              <p>
+                اسوأ تصميم لموقع شخصي على الاطلاق،يحوي العديد من اخطاء تجربة المستخدم مع تصحيحها للتعلم.
+              </p>
 
-    <div class="divider"></div>
+              <div class="visit">
+                استكشف الموقع
 
+                <span class="arrow"> → </span>
+              </div>
+            </div>
+          </a>
 
+          <!-- USERINYERFACE -->
 
-    <!-- =======================================
+          <a
+            class="card"
+            href="https://userinyerface.com/game.html"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">C</div>
+
+            <div class="card-content">
+              <h3>Userinyerface</h3>
+
+              <p>
+                 موقع يقدم العديد من اخطاء تجربة المستخدم الشائعة
+              </p>
+
+              <div class="visit">
+                استكشف الموقع
+
+                <span class="arrow"> → </span>
+              </div>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+      <!-- =======================================
          UI ELEMENTS
     ======================================== -->
 
-    <section
-      class="resource-section"
-      id="elements"
-    >
+      <section class="resource-section" id="elements">
+        <div class="section-heading">
+          <div class="heading-main">
+            <div class="section-number">04</div>
 
-      <div class="section-heading">
+            <div>
+              <h2>عناصر الواجهة 🧩</h2>
 
-        <div class="heading-main">
-
-          <div class="section-number">
-            04
+              <p>Buttons، Components وتفاصيل صغيرة تصنع الفرق</p>
+            </div>
           </div>
 
-          <div>
-
-            <h2>
-              عناصر الواجهة 🧩
-            </h2>
-
-            <p>
-              Buttons، Components وتفاصيل صغيرة تصنع الفرق
-            </p>
-
-          </div>
-
+          <div class="section-line"></div>
         </div>
 
-        <div class="section-line"></div>
+        <div class="cards">
+          <!-- UIVERSE -->
 
-      </div>
+          <a
+            class="card featured"
+            href="https://uiverse.io/buttons"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">UI</div>
 
+            <div class="card-content">
+              <h3>UIverse</h3>
 
-      <div class="cards">
+              <p>
+                مكتبة مفتوحة من عناصر UI جاهزة ومبتكرة، خصوصًا للأزرار والـ
+                Components التي يمكنك استخدامها كمصدر إلهام أو تطويرها في
+                مشاريعك.
+              </p>
 
+              <div class="visit">
+                اكتشف عناصر UI
 
-        <!-- UIVERSE -->
-
-        <a
-          class="card featured"
-          href="https://uiverse.io/buttons"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            UI
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              UIverse
-            </h3>
-
-            <p>
-              مكتبة مفتوحة من عناصر UI جاهزة ومبتكرة،
-              خصوصًا للأزرار والـ Components التي يمكنك
-              استخدامها كمصدر إلهام أو تطويرها في مشاريعك.
-            </p>
-
-            <div class="visit">
-
-              اكتشف عناصر UI
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
+        </div>
+      </section>
 
-          </div>
+      <div class="divider"></div>
 
-        </a>
-
-      </div>
-
-    </section>
-
-
-
-    <div class="divider"></div>
-
-
-
-    <!-- =======================================
+      <!-- =======================================
          GOOGLE VISUAL IDENTITY
     ======================================== -->
 
-    <section
-      class="resource-section"
-      id="google"
-    >
+      <section class="resource-section" id="google">
+        <div class="section-heading">
+          <div class="heading-main">
+            <div class="section-number">05</div>
 
-      <div class="section-heading">
+            <div>
+              <h2>دراسة الهوية البصرية 🔵</h2>
 
-        <div class="heading-main">
-
-          <div class="section-number">
-            05
+              <p>كيف تبني العلامات الكبرى أنظمتها البصرية؟</p>
+            </div>
           </div>
 
-          <div>
-
-            <h2>
-              دراسة الهوية البصرية 🔵
-            </h2>
-
-            <p>
-              كيف تبني العلامات الكبرى أنظمتها البصرية؟
-            </p>
-
-          </div>
-
+          <div class="section-line"></div>
         </div>
 
-        <div class="section-line"></div>
+        <div class="cards">
+          <!-- GOOGLE -->
 
-      </div>
+          <a
+            class="card featured"
+            href="https://design.google/library/evolving-google-identity"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="logo">G</div>
 
+            <div class="card-content">
+              <h3>Google — Evolving Identity</h3>
 
-      <div class="cards">
+              <p>
+                تعرّف على تطور الهوية البصرية لـ Google وكيف يتم بناء نظام بصري
+                متكامل يجمع بين الشعار والألوان وTypography والحركة والـ Brand
+                System.
+              </p>
 
+              <div class="visit">
+                ادرس الهوية
 
-        <!-- GOOGLE -->
-
-        <a
-          class="card featured"
-          href="https://design.google/library/evolving-google-identity"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-
-          <div class="logo">
-            G
-          </div>
-
-          <div class="card-content">
-
-            <h3>
-              Google — Evolving Identity
-            </h3>
-
-            <p>
-              تعرّف على تطور الهوية البصرية لـ Google
-              وكيف يتم بناء نظام بصري متكامل يجمع بين
-              الشعار والألوان وTypography والحركة
-              والـ Brand System.
-            </p>
-
-            <div class="visit">
-
-              ادرس الهوية
-
-              <span class="arrow">
-                →
-              </span>
-
+                <span class="arrow"> → </span>
+              </div>
             </div>
+          </a>
+        </div>
+      </section>
+    </main>
 
-          </div>
-
-        </a>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-
-  <!-- =========================================
+    <!-- =========================================
        FOOTER
   ========================================= -->
 
-  <footer>
+    <footer>
+      <div class="container">
+        <div class="footer-logo">A</div>
 
-    <div class="container">
+        <h3>Visual Resources</h3>
 
-      <div class="footer-logo">
-        A
+        <p>See more. Think deeper. Design better.</p>
+
+        <!-- DEVELOPER CREDIT -->
+
+        <div class="developer-credit">
+          <span class="credit-label"> Designed & Developed by </span>
+
+          <strong> عبد الرحمن العظم </strong>
+
+          <span class="credit-role">
+            UI/UX Designer & Front-End Developer
+          </span>
+        </div>
+
+        <div class="signature">© 2026 Abdul Rahman Al-Azem</div>
       </div>
+    </footer>
 
+    <script>
+      (function () {
+        var toggle = document.getElementById("navToggle");
+        var links = document.getElementById("navLinks");
 
-      <h3>
-        Visual Resources
-      </h3>
+        if (!toggle || !links) return;
 
+        function closeMenu() {
+          links.classList.remove("open");
+          toggle.classList.remove("active");
+          toggle.setAttribute("aria-expanded", "false");
+        }
 
-      <p>
-        See more. Think deeper. Design better.
-      </p>
+        toggle.addEventListener("click", function () {
+          var isOpen = links.classList.toggle("open");
+          toggle.classList.toggle("active", isOpen);
+          toggle.setAttribute("aria-expanded", String(isOpen));
+        });
 
+        links.querySelectorAll("a").forEach(function (link) {
+          link.addEventListener("click", closeMenu);
+        });
 
-
-      <!-- DEVELOPER CREDIT -->
-
-      <div class="developer-credit">
-
-        <span class="credit-label">
-          Designed & Developed by
-        </span>
-
-        <strong>
-          عبد الرحمن العظم
-        </strong>
-
-        <span class="credit-role">
-          UI/UX Designer & Front-End Developer
-        </span>
-
-      </div>
-
-
-
-      <div class="signature">
-        © 2026 Abdul Rahman Al-Azem
-      </div>
-
-    </div>
-
-  </footer>
-
-
-  <script>
-    (function () {
-      var toggle = document.getElementById('navToggle');
-      var links = document.getElementById('navLinks');
-
-      if (!toggle || !links) return;
-
-      function closeMenu() {
-        links.classList.remove('open');
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-
-      toggle.addEventListener('click', function () {
-        var isOpen = links.classList.toggle('open');
-        toggle.classList.toggle('active', isOpen);
-        toggle.setAttribute('aria-expanded', String(isOpen));
-      });
-
-      links.querySelectorAll('a').forEach(function (link) {
-        link.addEventListener('click', closeMenu);
-      });
-
-      document.addEventListener('click', function (event) {
-        if (!event.target.closest('nav')) closeMenu();
-      });
-    })();
-  </script>
-
-
-</body>
+        document.addEventListener("click", function (event) {
+          if (!event.target.closest("nav")) closeMenu();
+        });
+      })();
+    </script>
+  </body>
 </html>
