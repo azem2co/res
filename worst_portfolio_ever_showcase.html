@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض أعمال كارثي - أسوأ ممارسات عرض المشاريع</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    body {
+      font-family: 'Comic Neue', 'Cairo', cursive, sans-serif;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Bad contrast joke */
+    .terrible-contrast {
+      color: #ffff88 !important;
+      background-color: #d8d8d8 !important;
+      text-shadow: 1px 1px 0px #fff;
+    }
+
+    /* Runaway elusive button */
+    .elusive-btn {
+      transition: all 0.15s ease-out;
+    }
+
+    /* Violent shaky animation for overdone hover */
+    @keyframes violentShake {
+      0% { transform: translate(1px, 1px) rotate(0deg); }
+      20% { transform: translate(-3px, 0px) rotate(2deg); }
+      40% { transform: translate(2px, -2px) rotate(-2deg); }
+      60% { transform: translate(-3px, 2px) rotate(0deg); }
+      80% { transform: translate(3px, 1px) rotate(-1deg); }
+      100% { transform: translate(1px, -2px) rotate(2deg); }
+    }
+
+    .shake-on-hover:hover {
+      animation: violentShake 0.12s infinite;
+      box-shadow: 0 0 35px #ff00ff, 0 0 15px #00ffff;
+    }
+
+    /* Blinking marquee text */
+    @keyframes neonBlink {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 5px #ff00ff); }
+      50% { opacity: 0.3; }
+    }
+    .neon-blink {
+      animation: neonBlink 0.8s infinite;
+    }
+
+    /* Inspection critique tags */
+    .critique-tag {
+      display: none;
+      position: absolute;
+      z-index: 50;
+      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+    }
+
+    body.critique-active .critique-tag {
+      display: flex;
+    }
+
+    @keyframes popIn {
+      from { transform: scale(0.7) translateY(-5px); opacity: 0; }
+      to { transform: scale(1) translateY(0); opacity: 1; }
+    }
+  </style>
+</head>
+
+<body class="bg-[#ffffea] text-gray-900 selection:bg-pink-500 selection:text-yellow-300">
+
+  <!-- Top Educational Master Toolbar -->
+  <header class="sticky top-0 z-50 bg-slate-900 text-white shadow-xl border-b-4 border-yellow-400 px-4 py-3">
+    <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-2">
+        <span class="text-2xl">⚠️</span>
+        <div>
+          <h1 class="font-extrabold text-base sm:text-lg tracking-wide text-yellow-400 font-sans">
+            معرض الأعمال الفاشل (Worst Portfolio Ever)
+          </h1>
+          <p class="text-xs text-slate-300 font-sans">نموذج تعليمي ساخر لتوضيح أسوأ كوارث عرض المشاريع الرقمية</p>
+        </div>
+      </div>
+
+      <!-- Critique Mode Toggle Button -->
+      <div class="flex items-center gap-3">
+        <button id="soundToggleBtn" class="bg-slate-800 hover:bg-slate-700 text-xs px-3 py-2 rounded-lg border border-slate-600 transition flex items-center gap-2">
+          <i class="fa-solid fa-volume-high text-yellow-400" id="soundIcon"></i>
+          <span id="soundLabel">المؤثرات: مفعلة</span>
+        </button>
+
+        <button id="toggleCritiqueBtn" class="relative group bg-gradient-to-r from-red-600 to-amber-600 hover:from-red-500 hover:to-amber-500 text-white font-bold text-sm sm:text-base px-5 py-2.5 rounded-xl shadow-lg border-2 border-white flex items-center gap-2 transition-all transform active:scale-95">
+          <i class="fa-solid fa-graduation-cap text-lg animate-bounce"></i>
+          <span id="critiqueBtnText">تشغيل وضع التحليل والنقد (كشف الأخطاء)</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 90s style annoying marquee -->
+  <div class="bg-lime-400 text-purple-900 font-extrabold text-sm py-1.5 px-4 overflow-hidden border-b-2 border-dashed border-red-500">
+    <div class="whitespace-nowrap animate-pulse flex items-center justify-around gap-8">
+      <span>🚀 أهلاً بكم في أقوى وأخطر موقع مبرمج في درب التبانة 🚀</span>
+      <span>⭐ 100% رضا العملاء بدون أي دليل ملموس ⭐</span>
+      <span>🔥 لا توظف غيري، البقية مجرد هواة 🔥</span>
+      <span>💼 مشاريع سرية غير قابلة للعرض لأسباب أمنية غامضة 💼</span>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="relative max-w-5xl mx-auto px-4 pt-10 pb-8 text-center">
+    
+    <!-- Critique Tag for Hero -->
+    <div class="critique-tag -top-2 left-4 right-4 sm:left-auto bg-red-600 text-white text-xs sm:text-sm p-3 rounded-lg shadow-2xl border-2 border-white max-w-md mx-auto">
+      <i class="fa-solid fa-triangle-exclamation text-yellow-300 text-base ml-2"></i>
+      <div>
+        <strong>خطأ كارثي (انعدام التباين والاحترافية):</strong>
+        نص فاتح على خلفية فاتحة يعمي القارئ، استخدام خط غير جاد، وعدم وجود تعريف واضح بالدور الوظيفي الدقيق.
+      </div>
+    </div>
+
+    <!-- Tacky Avatar with stretched ratio -->
+    <div class="relative inline-block mb-4">
+      <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" 
+           alt="أنا المطور الأسطوري" 
+           class="w-32 h-20 object-fill rounded-full border-4 border-fuchsia-600 shadow-2xl mx-auto filter saturate-200">
+      <span class="absolute -bottom-2 -right-2 bg-yellow-300 text-black text-xs font-bold px-2 py-0.5 rounded border border-black transform rotate-12">
+        المطور الخارق!
+      </span>
+    </div>
+
+    <h2 class="text-3xl sm:text-5xl font-black text-fuchsia-700 tracking-wider mb-2">
+      مرحبـاً.. أنا فلان بن فلان 👑
+    </h2>
+    
+    <!-- Intentionally terrible contrast container -->
+    <div class="terrible-contrast p-3 max-w-xl mx-auto rounded-lg mb-6 border border-gray-300">
+      <p class="font-bold text-sm sm:text-base">
+        (حاول تقرأ هذا النص): مصمم، مبرمج، رائد أعمال، غواص، طباخ شاورما، ومتخصص في كل لغة برمجة ظهرت منذ عام 1970.
+      </p>
+    </div>
+
+    <!-- Tacky Fake Skill Progress Bars -->
+    <div class="relative bg-white/70 p-4 rounded-xl border-2 border-pink-300 max-w-2xl mx-auto mb-8 shadow-inner">
+      <div class="critique-tag -top-4 -right-2 bg-red-600 text-white text-xs p-2.5 rounded shadow-lg max-w-xs text-right">
+        <i class="fa-solid fa-circle-xmark text-yellow-300 ml-1"></i>
+        <strong>مغالطة نسب المهارات (99% HTML):</strong> وضع مقاييس مئوية للمهارات البرمجية لا يحمل أي معنى هندسي ويوحي بسذاجة العرض.
+      </div>
+
+      <h3 class="text-sm font-bold text-purple-800 mb-2">إحصائيات خارقة للطبيعة:</h3>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div>
+          <div class="flex justify-between font-bold mb-1">
+            <span>HTML & CSS</span>
+            <span>99.9%</span>
+          </div>
+          <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-green-400 to-emerald-600 h-2.5 rounded-full" style="width: 99.9%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between font-bold mb-1">
+            <span>شرب قهوة بدون سكر</span>
+            <span>150%</span>
+          </div>
+          <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-amber-500 to-red-600 h-2.5 rounded-full" style="width: 100%"></div>
+          </div>
+        </div>
+        <div>
+          <div class="flex justify-between font-bold mb-1">
+            <span>الذكاء الاصطناعي السحري</span>
+            <span>87.4%</span>
+          </div>
+          <div class="w-full bg-gray-200 h-2.5 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-blue-400 to-indigo-600 h-2.5 rounded-full" style="width: 87.4%"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section Intro -->
+  <main class="max-w-6xl mx-auto px-4 pb-20">
+    <div class="text-center mb-8">
+      <span class="bg-yellow-300 text-black font-extrabold text-xs px-3 py-1 rounded-full uppercase tracking-widest border border-black shadow">
+        معرض الإنجازات الغامضة
+      </span>
+      <h3 class="text-2xl sm:text-3xl font-black text-gray-900 mt-2">
+        مشاريعي الأسطورية (اضغط إذا تجرأت)
+      </h3>
+      <p class="text-gray-600 text-sm mt-1">تفحص البطاقات أدناه واكتشف كم الأخطاء القاتلة المرتكبة في كل مشروع!</p>
+    </div>
+
+    <!-- Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- ================= PROJECT 1: ZERO CONTEXT & BROKEN LINK ================= -->
+      <div class="relative bg-white rounded-xl shadow-lg border-2 border-gray-300 p-4 flex flex-col justify-between overflow-hidden">
+        
+        <!-- Critique Badge -->
+        <div class="critique-tag -top-3 left-2 right-2 bg-red-600 text-white text-xs p-2.5 rounded-lg shadow-xl border border-white">
+          <div>
+            <strong>1. انعدام السياق ورابط معطوب:</strong> 
+            صورة ضبابية بدون سياق، لا يوجد أي توضيح لما يفعله المشروع أو التقنيات المستعملة، وزر "اضغط هنا" بلا معنى ينتهي برابط ميت.
+          </div>
+        </div>
+
+        <div>
+          <div class="bg-gray-100 rounded-lg p-2 mb-3 border border-dashed border-gray-400">
+            <!-- Blurry low-res placeholder image -->
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=80&q=10" 
+                 alt="سكرين شوت منخفض الجودة" 
+                 class="w-full h-36 object-cover rounded filter blur-[1px]">
+            <span class="text-[10px] text-gray-400 block text-center mt-1">لقطة شاشة التقطت بكاميرا نوكيا قديمة</span>
+          </div>
+
+          <h4 class="font-extrabold text-lg text-gray-800">مشروع 1 (Final_v2_new_FINAL)</h4>
+          <p class="text-gray-500 text-xs mt-1 mb-4 leading-relaxed">
+            مشروع رائع جداً اشتغلت عليه أسبوعين كاملين وكان متعب جداً والحمدلله شغال عندي في الجهاز 100%.
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-gray-100">
+          <button onclick="handleBrokenProjectClick(this)" class="w-full bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold py-2.5 px-4 rounded transition flex items-center justify-center gap-2">
+            <span>اضغط هنا لمشاهدة المشروع</span>
+            <i class="fa-solid fa-arrow-left"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= PROJECT 2: BUZZWORD OVERLOAD (NO SCREENSHOT) ================= -->
+      <div class="relative bg-gradient-to-br from-indigo-900 to-purple-900 text-white rounded-xl shadow-lg p-4 flex flex-col justify-between border-2 border-indigo-400">
+        
+        <!-- Critique Badge -->
+        <div class="critique-tag -top-3 left-2 right-2 bg-red-600 text-white text-xs p-2.5 rounded-lg shadow-xl border border-white">
+          <div>
+            <strong>2. طوفان المصطلحات الرنانة (Buzzword Salad):</strong> 
+            كلام مبهرج فارغ من المعنى (Web3, AI, Quantum, Synergistic) مع غياب تام لأي واجهة أو إثبات ملموس على وجود المشروع أصلاً.
+          </div>
+        </div>
+
+        <div>
+          <div class="h-36 bg-black/40 rounded-lg flex flex-col items-center justify-center text-center p-3 border border-purple-500/50 mb-3">
+            <i class="fa-solid fa-brain text-purple-400 text-3xl mb-2 animate-pulse"></i>
+            <span class="text-xs text-purple-200">الواجهة محمية بموجب اتفاقية عدم الإفصاح (NDA) مع الفضائيين</span>
+          </div>
+
+          <h4 class="font-bold text-base text-yellow-300">منظومة الميتافيرس الكمومية التآزرية AI-Web3</h4>
+          <p class="text-[11px] text-gray-300 mt-2 leading-relaxed">
+            حل نموذجي سحابي لا مركزي يعيد صياغة هندسة البيانات العصبية عبر البلوكشين الذاتي لتمكين التحول الرقمي الميتافيزيقي.
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-purple-800">
+          <button onclick="handleBuzzwordClick()" class="w-full bg-yellow-400 hover:bg-yellow-300 text-slate-950 text-xs font-black py-2.5 px-4 rounded transition">
+            طلب استشارة استراتيجية بـ $10,000
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= PROJECT 3: THE RUNAWAY BUTTON / UNCLICKABLE ================= -->
+      <div class="relative bg-white rounded-xl shadow-lg border-2 border-rose-300 p-4 flex flex-col justify-between">
+        
+        <!-- Critique Badge -->
+        <div class="critique-tag -top-3 left-2 right-2 bg-red-600 text-white text-xs p-2.5 rounded-lg shadow-xl border border-white">
+          <div>
+            <strong>3. تفاعل خبيث يمنع التصفح (Hostile UI):</strong> 
+            أزرار تهرب أو تعاند الزائر، حركات مضللة تجعل المستثمر أو مسؤول التوظيف يغلق التبويب بعد ثانيتين.
+          </div>
+        </div>
+
+        <div>
+          <div class="h-36 bg-rose-50 rounded-lg overflow-hidden relative mb-3 border border-rose-200 flex items-center justify-center">
+            <i class="fa-solid fa-lock text-rose-400 text-4xl"></i>
+            <span class="absolute bottom-2 text-[10px] text-rose-700 font-bold bg-white/90 px-2 py-0.5 rounded">رابط تجريبي مباشر</span>
+          </div>
+
+          <h4 class="font-bold text-gray-900 text-base">متجر إلكتروني فائق السرعة</h4>
+          <p class="text-gray-600 text-xs mt-1 leading-relaxed">
+            متجر للبيع بالتجزئة، لكن زر المعاينة الحية خجول جداً ولا يحب أن ينقر عليه أحد.
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-gray-100 relative min-h-[55px] flex items-center justify-center">
+          <button id="runawayBtn" class="elusive-btn bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold py-2 px-5 rounded-lg shadow">
+            جرب الرابط الحي 🏃‍♂️
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= PROJECT 4: VIOLENT MOTION SICKNESS ANIMATION ================= -->
+      <div class="shake-on-hover relative bg-gradient-to-r from-yellow-200 via-pink-200 to-cyan-200 rounded-xl shadow-lg p-4 flex flex-col justify-between border-4 border-dashed border-red-500 cursor-pointer">
+        
+        <!-- Critique Badge -->
+        <div class="critique-tag -top-3 left-2 right-2 bg-red-600 text-white text-xs p-2.5 rounded-lg shadow-xl border border-white">
+          <div>
+            <strong>4. مؤثرات حركية هستيرية (Visual Noise):</strong> 
+            أنيميشن اهتزازي عنيف عند التمرير يسبب إجهاداً بصرياً ودواراً، ويفسد قابلية الوصول (Accessibility).
+          </div>
+        </div>
+
+        <div>
+          <div class="h-36 bg-white/80 rounded-lg flex items-center justify-center mb-3">
+            <span class="text-2xl animate-spin">😵‍💫</span>
+          </div>
+
+          <h4 class="font-black text-gray-900 text-base">منصة تفاعلية بمؤثرات خارقة</h4>
+          <p class="text-gray-800 text-xs mt-1 leading-relaxed font-bold">
+            مرر الفأرة فوق هذه البطاقة لتشاهد روعة المؤثرات التي تجعلك تصاب بالدوار فوراً!
+          </p>
+        </div>
+
+        <div class="pt-3 border-t border-red-300">
+          <div class="text-[11px] text-red-700 font-extrabold text-center">
+            ⚠️ تحذير: قد يسبب اهتزاز الشاشة صدمة عصبية
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= PROJECT 5: WALL OF LOREM IPSUM HIDDEN WORK ================= -->
+      <div class="relative bg-white rounded-xl shadow-lg border-2 border-gray-300 p-4 flex flex-col justify-between">
+        
+        <!-- Critique Badge -->
+        <div class="critique-tag -top-3 left-2 right-2 bg-red-600 text-white text-xs p-2.5 rounded-lg shadow-xl border border-white">
+          <div>
+            <strong>5. جدار نصي بدون هيكلة ولا إبراز للنتائج:</strong> 
+            نصوص عشوائية طويلة تحجب العمل الفعلي، دون ذكر حل المشكلة أو العائد (Impact) أو المقاييس المحققة.
+          </div>
+        </div>
+
+        <div>
+          <div class="h-16 bg-gray-200 rounded flex items-center justify-center text-xs text-gray-500 mb-2 font-mono">
+            [صورة المشروع مدفونة تحت النص]
+          </div>
+
+          <h4 class="font-bold text-gray-800 text-sm">نظام إدارة المستودعات واللوجستيات</h4>
+          <div class="max-h-24 overflow-y-scroll text-[10px] text-gray-500 bg-gray-50 p-2 rounded border border-gray-200 mt-1 leading-tight">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-gray-100">
+          <button onclick="handleLoremClick()" class="w-full bg-gray-700 hover:bg-gray-800 text-white text-xs py-2 rounded">
+            قراءة المقالة المكونة من 40 صفحة
+          </button>
+        </div>
+      </div>
+
+      <!-- ================= PROJECT 6: THE CONFUSED TECH STACK ================= -->
+      <div class="relative bg-white rounded-xl shadow-lg border-2 border-gray-300 p-4 flex flex-col justify-between">
+        
+        <!-- Critique Badge -->
+        <div class="critique-tag -top-3 left-2 right-2 bg-red-600 text-white text-xs p-2.5 rounded-lg shadow-xl border border-white">
+          <div>
+            <strong>6. تكديس تقنيات متناقضة:</strong> 
+            وضع وسوم لـ 15 تقنية لا علاقة لبعضها ببعض لإظهار المعرفة المزيفة، دون تحديد ما استخدمته أنت شخصياً.
+          </div>
+        </div>
+
+        <div>
+          <div class="h-32 bg-slate-900 rounded-lg p-3 text-emerald-400 font-mono text-[11px] mb-2 overflow-hidden flex items-center justify-center">
+            <span>&gt; npm install everything-in-the-world</span>
+          </div>
+
+          <h4 class="font-bold text-gray-800 text-sm">تطبيق حاسبة بسيطة للجمع والطرح</h4>
+          
+          <div class="flex flex-wrap gap-1 mt-2">
+            <span class="bg-blue-100 text-blue-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Kubernetes</span>
+            <span class="bg-red-100 text-red-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Rust</span>
+            <span class="bg-yellow-100 text-yellow-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Hadoop</span>
+            <span class="bg-purple-100 text-purple-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Unreal Engine 5</span>
+            <span class="bg-green-100 text-green-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Spring Boot</span>
+            <span class="bg-pink-100 text-pink-800 text-[9px] px-1.5 py-0.5 rounded font-bold">Fortran 77</span>
+          </div>
+        </div>
+
+        <div class="pt-3 border-t border-gray-100 mt-3">
+          <span class="text-[11px] text-gray-400 block text-center">مشروع حاسبة مكتوب بـ 6 أطر عمل مختلفة!</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Aggressive Tacky Modal / Banner -->
+  <div id="toxicModal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="relative bg-gradient-to-tr from-yellow-300 via-pink-400 to-red-400 p-6 rounded-3xl shadow-2xl max-w-md w-full border-4 border-yellow-200 text-center animate-bounce">
+      
+      <!-- Educational critique label attached to popup -->
+      <div class="bg-slate-900 text-yellow-300 text-xs p-2 rounded-lg mb-4 text-right border border-yellow-400">
+        <i class="fa-solid fa-bullhorn text-red-400 ml-1"></i>
+        <strong>خطأ شائع قاتل:</strong> إجبار الزائر على الاشتراك أو التسجيل قبل أن يرى أي عينة من أعمالك يسبب معدل ارتداد (Bounce Rate) يتجاوز 90%!
+      </div>
+
+      <h3 class="text-2xl font-black text-white drop-shadow mb-1">
+        🎁 انتظر لحظة يا بطل!
+      </h3>
+      <p class="text-xs text-white/90 font-bold mb-4">
+        اشترك في نشرتي الإخبارية الأسبوعية لتحصل على نصائح سحرية في البرمجة قبل أن يُسمح لك برؤية المشاريع!
+      </p>
+
+      <div class="space-y-2 mb-4">
+        <input type="email" placeholder="اكتب بريدك هنا..." class="w-full text-center px-4 py-2 text-xs rounded-full border-2 border-white focus:outline-none text-gray-900 font-sans">
+        <button onclick="handleSubscribeClick()" class="w-full bg-slate-900 hover:bg-black text-yellow-300 text-xs font-black py-2.5 rounded-full shadow-lg transition">
+          نعم! أريد أن أصبح عبقرياً فوراً
+        </button>
+      </div>
+
+      <!-- Tiny deceptive dismiss button -->
+      <div class="flex justify-center items-center">
+        <button id="closeModalBtn" onclick="closeToxicModal()" class="text-[10px] text-gray-800 hover:text-black underline">
+          لا شكراً، أفضل أن أفشل في مسيرتي المهنية
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Best Practice Educational Guide Section -->
+  <section class="bg-slate-900 text-white py-12 px-4 border-t-4 border-yellow-400">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <h3 class="text-2xl font-extrabold text-yellow-400">
+          كيف تعرض مشاريعك بالطريقة الصحيحة؟ (دليل الإنقاذ)
+        </h3>
+        <p class="text-gray-300 text-xs sm:text-sm mt-1">
+          جدول مقارنة سريع بين ما يعرضه المبتدئ وما يبحث عنه مسؤولو التوظيف والعملاء:
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs sm:text-sm">
+        
+        <!-- The Wrong Way -->
+        <div class="bg-red-950/50 border border-red-500/50 rounded-xl p-4">
+          <h4 class="font-bold text-red-400 text-base mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-xmark"></i>
+            ما يجب عليك تجنبه تماماً:
+          </h4>
+          <ul class="space-y-2 text-gray-300 list-disc list-inside">
+            <li>عرض لقطة شاشة وحيدة بدون شرح المشكلة والحل.</li>
+            <li>عدم توفير رابط حي (Live Demo) أو مستودع الكود (GitHub).</li>
+            <li>وضع مقاييس مئوية غريبة للمهارات البرمجية (مثل 90% Python).</li>
+            <li>استخدام خطوط وألوان مؤذية للبصر أو نصوص بدون تباين واضح.</li>
+            <li>ادعاء إتقان عشرات التقنيات في مشاريع لا تتطلبها.</li>
+          </ul>
+        </div>
+
+        <!-- The Right Way -->
+        <div class="bg-emerald-950/50 border border-emerald-500/50 rounded-xl p-4">
+          <h4 class="font-bold text-emerald-400 text-base mb-3 flex items-center gap-2">
+            <i class="fa-solid fa-circle-check"></i>
+            ما يجعلك تفوز بالوظائف والمشاريع:
+          </h4>
+          <ul class="space-y-2 text-gray-300 list-disc list-inside">
+            <li>كتابة دراسة حالة مصغرة (Case Study): المشكلة &rarr; دورك &rarr; الحل.</li>
+            <li>إبراز الأثر بالأرقام (مثال: تسريع التحميل بنسبة 35%).</li>
+            <li>تحديد التقنيات الحقيقية المستخدمة وسبب اختيارها بالتحديد.</li>
+            <li>رابط مباشر يعمل بسرعة مع كود منظم وتوثيق (README) محترم.</li>
+            <li>واجهة بسيطة مريحة للعين تركز على المحتوى وسهولة التصفح.</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Custom In-App Modal / Toast Alert (No native alert() allowed) -->
+  <div id="customToast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-5 py-3.5 rounded-xl shadow-2xl border-2 border-yellow-400 max-w-sm hidden flex items-center gap-3 transition-all duration-300">
+    <div id="toastIcon" class="text-xl text-yellow-400">⚠️</div>
+    <div class="text-xs">
+      <div id="toastTitle" class="font-bold">تنبيه</div>
+      <div id="toastMessage" class="text-gray-300 mt-0.5">رسالة التنبيه</div>
+    </div>
+    <button onclick="hideToast()" class="mr-auto text-gray-400 hover:text-white text-sm">✕</button>
+  </div>
+
+  <script>
+    // State management
+    let critiqueMode = false;
+    let soundEnabled = true;
+    let audioCtx = null;
+
+    // Web Audio Synthesizer for playful sound effects without external assets
+    function playBeep(frequency = 440, type = 'sine', duration = 0.15) {
+      if (!soundEnabled) return;
+      try {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') {
+          audioCtx.resume();
+        }
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = type;
+        osc.frequency.setValueAtTime(frequency, audioCtx.currentTime);
+        gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {
+        console.warn('Audio not allowed yet by browser policy');
+      }
+    }
+
+    // Toggle Critique Mode
+    const toggleCritiqueBtn = document.getElementById('toggleCritiqueBtn');
+    const critiqueBtnText = document.getElementById('critiqueBtnText');
+
+    toggleCritiqueBtn.addEventListener('click', () => {
+      critiqueMode = !critiqueMode;
+      playBeep(critiqueMode ? 600 : 300, 'triangle', 0.2);
+
+      if (critiqueMode) {
+        document.body.classList.add('critique-active');
+        critiqueBtnText.textContent = 'إيقاف وضع النقد (العودة للوضع السيئ)';
+        toggleCritiqueBtn.classList.remove('from-red-600', 'to-amber-600');
+        toggleCritiqueBtn.classList.add('from-emerald-600', 'to-teal-600');
+        showToast('تم تفعيل وضع النقد والتحليل!', 'تم إظهار الشارات التعليمية الحمراء لشرح كل خطأ بورتفوليو بالتفصيل.', '🎓');
+      } else {
+        document.body.classList.remove('critique-active');
+        critiqueBtnText.textContent = 'تشغيل وضع التحليل والنقد (كشف الأخطاء)';
+        toggleCritiqueBtn.classList.remove('from-emerald-600', 'to-teal-600');
+        toggleCritiqueBtn.classList.add('from-red-600', 'to-amber-600');
+        showToast('تم إغلاق وضع النقد', 'أنت الآن تتصفح المعرض في وضعه الكارثي الأصلي.', '👀');
+      }
+    });
+
+    // Sound toggle
+    const soundToggleBtn = document.getElementById('soundToggleBtn');
+    const soundIcon = document.getElementById('soundIcon');
+    const soundLabel = document.getElementById('soundLabel');
+
+    soundToggleBtn.addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      if (soundEnabled) {
+        soundIcon.className = 'fa-solid fa-volume-high text-yellow-400';
+        soundLabel.textContent = 'المؤثرات: مفعلة';
+        playBeep(520, 'sine', 0.1);
+      } else {
+        soundIcon.className = 'fa-solid fa-volume-xmark text-gray-400';
+        soundLabel.textContent = 'المؤثرات: معطلة';
+      }
+    });
+
+    // Runaway elusive button trick
+    const runawayBtn = document.getElementById('runawayBtn');
+    let runCount = 0;
+
+    function dodgeCursor() {
+      playBeep(700 + runCount * 50, 'square', 0.08);
+      runCount++;
+      const randomX = (Math.random() - 0.5) * 160;
+      const randomY = (Math.random() - 0.5) * 80;
+      runawayBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+      
+      if (runCount === 3) {
+        showToast('الزر يهرب منك!', 'واجهات الاستفزاز تزيد من إحباط المستخدم وتدفعه لمغادرة الموقع فوراً.', '🏃‍♂️');
+      }
+    }
+
+    runawayBtn.addEventListener('mouseenter', dodgeCursor);
+    runawayBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      dodgeCursor();
+    });
+
+    // Custom Toast Notification Helper
+    let toastTimeout = null;
+    function showToast(title, message, icon = '⚠️') {
+      const toast = document.getElementById('customToast');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+      document.getElementById('toastIcon').textContent = icon;
+      
+      toast.classList.remove('hidden');
+      if (toastTimeout) clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(hideToast, 4500);
+    }
+
+    function hideToast() {
+      document.getElementById('customToast').classList.add('hidden');
+    }
+
+    // Interactive button clicks simulations
+    function handleBrokenProjectClick(btn) {
+      playBeep(220, 'sawtooth', 0.25);
+      showToast(
+        'خطأ 404: الرابط معطوب!',
+        'هذا ما يحدث عندما تضع أزرار "اضغط هنا" عامة بدون ربطها بموقع حي أو مستودع حقيقي.',
+        '❌'
+      );
+    }
+
+    function handleBuzzwordClick() {
+      playBeep(330, 'triangle', 0.2);
+      showToast(
+        'عفواً، الخدمة غير متاحة!',
+        'المشاريع المبنية على كلمات رنانة بدون حلول تقنية حقيقية لا تبيع ولا تقنع أي خبير.',
+        '🛸'
+      );
+    }
+
+    function handleLoremClick() {
+      playBeep(400, 'sine', 0.15);
+      showToast(
+        'جدار نصي ممل!',
+        'لا أحد يملك الوقت لقراءة صفحات من النصوص غير المنسقة. استخدم نقاطاً موجزة مع إبراز الحل والنتائج.',
+        '📄'
+      );
+    }
+
+    function handleSubscribeClick() {
+      playBeep(580, 'sine', 0.2);
+      closeToxicModal();
+      showToast(
+        'تم "الاشتراك" بنجاح!',
+        'لكن 90% من الزوار الحقيقيين كانوا سيغلقون الموقع قبل أن يصلوا إلى هذه الخطوة.',
+        '📬'
+      );
+    }
+
+    function closeToxicModal() {
+      const modal = document.getElementById('toxicModal');
+      modal.classList.add('hidden');
+      playBeep(450, 'sine', 0.1);
+    }
+
+    // Auto trigger critique mode hint on page load
+    window.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => {
+        showToast('مرحباً بك!', 'جرّب الضغط على زر "وضع التحليل والنقد" في الأعلى لمعرفة سبب فشل كل عنصر في الصفحة.', '💡');
+      }, 1500);
+    });
+  </script>
+</body>
+</html>
