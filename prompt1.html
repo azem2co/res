@@ -1,0 +1,1142 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eaf6ff" />
+    <meta
+      name="description"
+      content="حوّل الـ Low-Fidelity Wireframe إلى تصميم High-Fidelity احترافي باستخدام برومبت جاهز للنسخ."
+    />
+    <title>Wireframe to High-Fidelity — Prompt Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      :root {
+        --ink: #16334f;
+        --muted: #69839c;
+        --blue: #3899e8;
+        --blue-deep: #1976c9;
+        --line: rgba(91, 157, 211, 0.19);
+        --glass: rgba(255, 255, 255, 0.68);
+        --shadow: 0 18px 55px rgba(49, 115, 169, 0.09);
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        margin: 0;
+        min-height: 100vh;
+        color: var(--ink);
+        background:
+          radial-gradient(
+            ellipse at 8% 8%,
+            rgba(166, 220, 255, 0.56),
+            transparent 34%
+          ),
+          radial-gradient(
+            ellipse at 94% 30%,
+            rgba(198, 234, 255, 0.72),
+            transparent 31%
+          ),
+          linear-gradient(135deg, #f7fcff 0%, #edf7ff 48%, #f9fcff 100%);
+        font-family: "Cairo", sans-serif;
+        overflow-x: hidden;
+      }
+      button,
+      a {
+        font: inherit;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .ambient {
+        position: fixed;
+        pointer-events: none;
+        z-index: -1;
+        border-radius: 50%;
+        filter: blur(2px);
+        opacity: 0.55;
+      }
+      .ambient-one {
+        width: 310px;
+        height: 310px;
+        background: #bce7ff;
+        top: 36%;
+        right: -180px;
+      }
+      .ambient-two {
+        width: 240px;
+        height: 240px;
+        background: #d2eaff;
+        top: 74%;
+        left: -140px;
+      }
+      .glass {
+        background: var(--glass);
+        border: 1px solid rgba(255, 255, 255, 0.88);
+        box-shadow:
+          var(--shadow),
+          inset 0 1px 0 rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(22px);
+        -webkit-backdrop-filter: blur(22px);
+      }
+      .topbar {
+        width: min(1120px, calc(100% - 40px));
+        margin: 22px auto 0;
+        padding: 12px 18px;
+        border-radius: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 17px;
+        font-weight: 800;
+        direction: ltr;
+      }
+      .brand-mark {
+        display: grid;
+        place-items: center;
+        width: 39px;
+        height: 39px;
+        border-radius: 12px;
+        color: white;
+        background: linear-gradient(145deg, #69c2ff, #287fce);
+        box-shadow: 0 6px 15px rgba(44, 139, 211, 0.24);
+        font-size: 14px;
+        letter-spacing: -1px;
+      }
+      .brand-light {
+        color: #5a9fd8;
+        font-weight: 500;
+      }
+      .top-link {
+        color: #557c9e;
+        font-size: 13px;
+        font-weight: 700;
+        transition: color 0.2s;
+      }
+      .top-link:hover {
+        color: var(--blue-deep);
+      }
+      .container {
+        width: min(1000px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+      .hero {
+        text-align: center;
+        padding: 78px 0 52px;
+      }
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        direction: ltr;
+        font:
+          700 11px/1.5 Arial,
+          sans-serif;
+        letter-spacing: 2px;
+        color: #5b91bd;
+        background: rgba(255, 255, 255, 0.58);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        padding: 9px 14px;
+        border-radius: 99px;
+        box-shadow: 0 5px 18px rgba(80, 150, 202, 0.06);
+      }
+      .pulse {
+        width: 7px;
+        height: 7px;
+        background: #50b6f5;
+        border-radius: 50%;
+        box-shadow: 0 0 0 4px rgba(80, 182, 245, 0.14);
+      }
+      h1 {
+        font-size: clamp(32px, 5.2vw, 55px);
+        line-height: 1.42;
+        letter-spacing: -0.8px;
+        margin: 24px 0 16px;
+        font-weight: 800;
+      }
+      .gradient-text {
+        color: #338fd9;
+        background: linear-gradient(100deg, #5bb9f7, #2379c4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .hero-copy {
+        max-width: 660px;
+        margin: 0 auto;
+        color: #67829b;
+        font-size: 15px;
+        line-height: 2.05;
+      }
+      .hero-pills {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 9px;
+        margin-top: 25px;
+      }
+      .hero-pills span {
+        font-size: 11px;
+        color: #527b9c;
+        padding: 8px 12px;
+        border: 1px solid rgba(128, 183, 222, 0.2);
+        border-radius: 99px;
+        background: rgba(255, 255, 255, 0.47);
+      }
+      .workflow {
+        border-radius: 25px;
+        padding: 30px;
+      }
+      .section-heading,
+      .prompt-title-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+      .section-kicker {
+        font-size: 10px;
+        font-weight: 800;
+        color: #559dd7;
+        letter-spacing: 1.7px;
+      }
+      h2 {
+        font-size: 23px;
+        margin: 4px 0 3px;
+        font-weight: 800;
+      }
+      .section-heading p,
+      .prompt-title-row p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 12px;
+      }
+      .step-counter {
+        min-width: 78px;
+        padding: 10px 13px;
+        border-radius: 15px;
+        background: rgba(227, 243, 255, 0.75);
+        border: 1px solid rgba(134, 194, 235, 0.25);
+        text-align: center;
+      }
+      .step-counter strong {
+        display: block;
+        font-size: 21px;
+        line-height: 1.2;
+        color: #318ed3;
+      }
+      .step-counter span {
+        color: #7795ae;
+        font-size: 10px;
+      }
+      .checklist {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 24px;
+      }
+      .check-item {
+        position: relative;
+        display: flex;
+        gap: 13px;
+        align-items: center;
+        min-height: 88px;
+        padding: 15px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.54);
+        cursor: pointer;
+        transition: 0.2s ease;
+      }
+      .check-item:hover {
+        border-color: rgba(67, 157, 222, 0.42);
+        transform: translateY(-1px);
+      }
+      .check-item:has(input:checked) {
+        background: rgba(225, 244, 255, 0.88);
+        border-color: rgba(55, 151, 217, 0.4);
+      }
+      .check-item input {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        accent-color: #3298e2;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+      }
+      .check-icon {
+        display: grid;
+        place-items: center;
+        flex: 0 0 42px;
+        height: 42px;
+        border-radius: 13px;
+        color: #438ec5;
+        background: #e7f5ff;
+        font-size: 12px;
+        font-weight: 800;
+        direction: ltr;
+      }
+      .check-item:has(input:checked) .check-icon {
+        color: white;
+        background: linear-gradient(145deg, #69c5ff, #318bd2);
+      }
+      .check-text {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        padding-left: 12px;
+      }
+      .check-text strong {
+        font-size: 13px;
+      }
+      .check-text small {
+        color: #7790a7;
+        font-size: 10px;
+        line-height: 1.8;
+      }
+      .check-hint {
+        margin-top: 17px;
+        border-radius: 12px;
+        padding: 12px 14px;
+        background: rgba(225, 242, 255, 0.62);
+        color: #6587a4;
+        font-size: 11px;
+        line-height: 1.8;
+      }
+      .check-hint span {
+        color: #368fce;
+        margin-left: 5px;
+      }
+      .prompt-section {
+        padding-top: 54px;
+      }
+      .prompt-title-row {
+        margin-bottom: 19px;
+      }
+      .language-tag {
+        direction: ltr;
+        color: #568ab6;
+        font:
+          700 10px Arial,
+          sans-serif;
+        letter-spacing: 1px;
+        padding: 9px 11px;
+        border-radius: 9px;
+        background: rgba(255, 255, 255, 0.62);
+        border: 1px solid rgba(255, 255, 255, 0.9);
+        white-space: nowrap;
+      }
+      .prompt-card {
+        border-radius: 23px;
+        overflow: hidden;
+      }
+      .prompt-toolbar {
+        height: 53px;
+        display: flex;
+        align-items: center;
+        gap: 13px;
+        padding: 0 19px;
+        border-bottom: 1px solid rgba(112, 170, 211, 0.15);
+        background: rgba(244, 250, 255, 0.7);
+        color: #8aa2b7;
+        font:
+          11px Arial,
+          sans-serif;
+        direction: ltr;
+      }
+      .window-dots {
+        display: flex;
+        gap: 5px;
+      }
+      .window-dots i {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #b6d7ef;
+      }
+      .window-dots i:first-child {
+        background: #7fc8f6;
+      }
+      .prompt-status {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+      }
+      .prompt-status span {
+        width: 6px;
+        height: 6px;
+        background: #6ac6a5;
+        border-radius: 50%;
+      }
+      .prompt-content {
+        padding: 27px 30px;
+        max-height: 520px;
+        overflow: auto;
+        direction: ltr;
+        text-align: left;
+        color: #46627a;
+        font:
+          13px/1.9 ui-monospace,
+          SFMono-Regular,
+          Menlo,
+          Consolas,
+          monospace;
+        scrollbar-width: thin;
+        scrollbar-color: #b8d9ef transparent;
+      }
+      .prompt-content .prompt-intro {
+        color: #1978bd;
+        font-size: 15px;
+        font-weight: 800;
+        margin-bottom: 15px;
+      }
+      .prompt-content h3 {
+        color: #247fb9;
+        font-size: 13px;
+        font-weight: 800;
+        margin: 23px 0 8px;
+      }
+      .prompt-content p {
+        margin: 8px 0;
+      }
+      .prompt-content ul,
+      .prompt-content ol {
+        padding-left: 24px;
+        margin: 7px 0 12px;
+      }
+      .prompt-content li {
+        padding-left: 3px;
+        margin: 3px 0;
+      }
+      .prompt-content b {
+        color: #244b6a;
+      }
+      .prompt-ending {
+        padding: 13px 15px;
+        background: #eaf6ff;
+        border-left: 3px solid #62b6ed;
+        border-radius: 5px;
+      }
+      .prompt-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 17px 20px;
+        border-top: 1px solid rgba(112, 170, 211, 0.15);
+        background: rgba(246, 251, 255, 0.72);
+      }
+      #word-count {
+        font-size: 11px;
+        color: #8aa2b7;
+      }
+      .copy-btn {
+        border: 0;
+        border-radius: 12px;
+        padding: 12px 20px;
+        color: white;
+        cursor: pointer;
+        background: linear-gradient(115deg, #5dbbfa, #2b85d0);
+        box-shadow: 0 7px 18px rgba(44, 139, 211, 0.24);
+        font-size: 12px;
+        font-weight: 800;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .copy-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(44, 139, 211, 0.3);
+      }
+      .copy-btn:active {
+        transform: translateY(0);
+      }
+      .copy-btn.copied {
+        background: linear-gradient(115deg, #42b99b, #269b7e);
+      }
+      .copy-icon {
+        font-size: 17px;
+        line-height: 1;
+      }
+      .copy-note {
+        text-align: center;
+        font-size: 11px;
+        color: #87a0b5;
+        margin: 12px 0 0;
+      }
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        padding: 44px 0 64px;
+      }
+      .tip-card {
+        border-radius: 18px;
+        padding: 21px;
+      }
+      .tip-symbol {
+        display: grid;
+        place-items: center;
+        width: 37px;
+        height: 37px;
+        border-radius: 12px;
+        color: #348bc9;
+        background: #e5f4ff;
+        font-size: 18px;
+      }
+      .tip-card h3 {
+        margin: 14px 0 5px;
+        font-size: 14px;
+      }
+      .tip-card p {
+        margin: 0;
+        color: #7890a6;
+        font-size: 11px;
+        line-height: 2;
+      }
+      .footer {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 20px;
+        color: #91a8bb;
+        font-size: 10px;
+        border-top: 1px solid rgba(102, 164, 207, 0.13);
+      }
+      .footer-mark {
+        color: #55a8e4;
+        font-weight: 800;
+        direction: ltr;
+      }
+      .footer-line {
+        height: 14px;
+        width: 1px;
+        background: #c9deee;
+      }
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translate(-50%, 20px);
+        opacity: 0;
+        pointer-events: none;
+        padding: 12px 19px;
+        border-radius: 13px;
+        color: white;
+        background: #227dbb;
+        box-shadow: 0 12px 35px rgba(31, 112, 172, 0.25);
+        font-size: 12px;
+        transition: 0.25s ease;
+        z-index: 10;
+        white-space: nowrap;
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translate(-50%, 0);
+      }
+      @media (max-width: 700px) {
+        .topbar {
+          width: calc(100% - 24px);
+          margin-top: 12px;
+          padding: 10px 13px;
+        }
+        .container {
+          width: calc(100% - 24px);
+        }
+        .hero {
+          padding: 56px 4px 38px;
+        }
+        h1 {
+          font-size: clamp(29px, 8vw, 42px);
+        }
+        .hero-copy {
+          font-size: 13px;
+        }
+        .workflow {
+          padding: 20px 15px;
+          border-radius: 20px;
+        }
+        .section-heading {
+          align-items: flex-start;
+        }
+        h2 {
+          font-size: 20px;
+        }
+        .checklist {
+          grid-template-columns: 1fr;
+          gap: 9px;
+          margin-top: 19px;
+        }
+        .check-item {
+          min-height: 78px;
+          padding: 12px;
+        }
+        .prompt-section {
+          padding-top: 39px;
+        }
+        .prompt-title-row {
+          align-items: flex-start;
+        }
+        .language-tag {
+          font-size: 8px;
+          padding: 8px;
+        }
+        .prompt-content {
+          padding: 21px 17px;
+          font-size: 12px;
+          max-height: 470px;
+        }
+        .prompt-toolbar {
+          padding: 0 13px;
+          gap: 8px;
+        }
+        .prompt-status {
+          font-size: 9px;
+        }
+        .prompt-footer {
+          padding: 13px;
+        }
+        .copy-btn {
+          padding: 11px 14px;
+        }
+        .tips-grid {
+          grid-template-columns: 1fr;
+          gap: 10px;
+          padding: 32px 0 45px;
+        }
+        .tip-card {
+          display: grid;
+          grid-template-columns: 42px 1fr;
+          column-gap: 12px;
+          padding: 16px;
+        }
+        .tip-symbol {
+          grid-row: span 2;
+        }
+        .tip-card h3 {
+          margin: 0 0 4px;
+        }
+        .tip-card p {
+          grid-column: 2;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          scroll-behavior: auto !important;
+          transition: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="ambient ambient-one"></div>
+    <div class="ambient ambient-two"></div>
+    <header class="topbar glass">
+      <a class="brand" href="#" aria-label="Prompt Studio الصفحة الرئيسية">
+        <span class="brand-mark">&lt;/&gt;</span>
+        <span>Prompt<span class="brand-light">Studio</span></span>
+      </a>
+      <a class="top-link" href="#how-to"
+        >طريقة الاستخدام <span aria-hidden="true">↗</span></a
+      >
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="eyebrow">
+          <span class="pulse"></span> UI/UX DESIGN TOOLKIT
+        </div>
+        <h1>
+          من <span class="gradient-text">Low-Fidelity</span><br />إلى تصميم
+          <span class="gradient-text">High-Fidelity</span>
+        </h1>
+        <p class="hero-copy">
+          حوّل مخططك الأولي إلى واجهة احترافية. انسخ البرومبت، أرفق صورك
+          ومراجعك، واترك للذكاء الاصطناعي مهمة تطوير التصميم مع الحفاظ على بنيته
+          الأساسية.
+        </p>
+        <div class="hero-pills">
+          <span>✦ جاهز للنسخ</span>
+          <span>⌘ يعمل مع أدوات متعددة</span>
+          <span>◈ يحافظ على بنية Wireframe</span>
+        </div>
+      </section>
+
+      <section class="workflow glass" id="how-to">
+        <div class="section-heading">
+          <div>
+            <span class="section-kicker">ابدأ بشكل صحيح</span>
+            <h2>قبل ما تنسخ البرومبت</h2>
+            <p>جهّز المرفقات التالية لتحصل على نتيجة أدق.</p>
+          </div>
+          <div class="step-counter">
+            <strong id="checked-count">0</strong><span>/ 4 جاهز</span>
+          </div>
+        </div>
+        <div class="checklist">
+          <label class="check-item">
+            <input type="checkbox" class="prep-check" />
+            <span class="check-icon">01</span>
+            <span class="check-text"
+              ><strong>صورة الـ Wireframe</strong
+              ><small
+                >المخطط الأساسي الذي يحدد توزيع العناصر وترتيب الأقسام.</small
+              ></span
+            >
+          </label>
+          <label class="check-item">
+            <input type="checkbox" class="prep-check" />
+            <span class="check-icon">02</span>
+            <span class="check-text"
+              ><strong>صور المحتوى</strong
+              ><small
+                >النصوص، الصور، المنتجات، البيانات أو العناصر المطلوب
+                استخدامها.</small
+              ></span
+            >
+          </label>
+          <label class="check-item">
+            <input type="checkbox" class="prep-check" />
+            <span class="check-icon">03</span>
+            <span class="check-text"
+              ><strong>مراجع بصرية</strong
+              ><small
+                >تصاميم توضّح الأسلوب والألوان والمكونات التي تفضّلها.</small
+              ></span
+            >
+          </label>
+          <label class="check-item">
+            <input type="checkbox" class="prep-check" />
+            <span class="check-icon">04</span>
+            <span class="check-text"
+              ><strong>الهوية البصرية</strong
+              ><small
+                >الشعار، الألوان، الخطوط وأي ملفات خاصة بالعلامة.</small
+              ></span
+            >
+          </label>
+        </div>
+        <div class="check-hint">
+          <span>ⓘ</span> أرسل البرومبت وجميع المرفقات في رسالة واحدة، ووضّح
+          للأداة وظيفة كل صورة.
+        </div>
+      </section>
+
+      <section class="prompt-section">
+        <div class="prompt-title-row">
+          <div>
+            <span class="section-kicker">THE PROMPT</span>
+            <h2>البرومبت الجاهز</h2>
+            <p>انسخه كما هو، أو عدّله حسب مشروعك.</p>
+          </div>
+          <span class="language-tag">ENGLISH · UNIVERSAL</span>
+        </div>
+
+        <div class="prompt-card glass">
+          <div class="prompt-toolbar">
+            <div class="window-dots"><i></i><i></i><i></i></div>
+            <span>low-to-high-fidelity.prompt</span>
+            <span class="prompt-status"><span></span> Ready to copy</span>
+          </div>
+          <div
+            class="prompt-content"
+            id="prompt-content"
+            tabindex="0"
+            aria-label="نص البرومبت"
+          >
+            <div class="prompt-intro">
+              # Task: Transform Low-Fidelity Wireframes into High-Fidelity UI
+              Designs
+            </div>
+            <p>
+              Act as a Senior UI/UX Designer, Product Designer, and Design
+              Systems Expert.
+            </p>
+            <p>
+              Your task is to transform the attached
+              <b>Low-Fidelity Wireframe</b> into a polished, production-quality
+              <b>High-Fidelity UI Design</b>, using all attached content,
+              images, brand assets, and visual references.
+            </p>
+            <h3>## 1. Understand the Attachments</h3>
+            <p>I may provide the following materials:</p>
+            <ul>
+              <li>
+                <b>Low-Fidelity Wireframe:</b> The primary structural reference
+                defining layout, hierarchy, component placement, and user flow.
+              </li>
+              <li>
+                <b>Content References:</b> Text, images, product information,
+                features, data, and other content that must appear in the final
+                design.
+              </li>
+              <li>
+                <b>Visual References:</b> Screenshots or designs that
+                communicate the desired aesthetic, interaction patterns, or
+                visual direction.
+              </li>
+              <li>
+                <b>Brand Assets:</b> Logos, colors, typography, icons,
+                illustrations, and other identity elements.
+              </li>
+            </ul>
+            <p>
+              Analyze all attachments before designing. Determine the purpose of
+              each image and use it accordingly. Do not confuse content
+              references with layout references.
+            </p>
+            <p>
+              If critical information is missing or contradictory, ask concise
+              clarification questions before proceeding. Otherwise, make
+              thoughtful, professional design decisions.
+            </p>
+            <h3>## 2. Preserve the Original Wireframe Structure</h3>
+            <p>
+              Treat the supplied Low-Fidelity Wireframe as the primary source of
+              truth for layout and information architecture.
+            </p>
+            <ul>
+              <li>
+                Preserve the main layout, content hierarchy, section order,
+                component placement, and intended user flow.
+              </li>
+              <li>
+                Maintain relationships between elements and their relative
+                visual positions.
+              </li>
+              <li>
+                Do not arbitrarily remove, add, reorder, or relocate major
+                sections.
+              </li>
+              <li>
+                Preserve all important functionality implied by the wireframe.
+              </li>
+              <li>
+                You may refine spacing, alignment, sizing, proportions, and
+                component styling to improve usability and visual quality.
+              </li>
+              <li>
+                If a structural change is necessary to solve a genuine usability
+                issue, explain why rather than making an unexplained redesign.
+              </li>
+            </ul>
+            <p>
+              <b
+                >The objective is to elevate the existing wireframe, not replace
+                its underlying design decisions.</b
+              >
+            </p>
+            <h3>## 3. Use the Provided Content Accurately</h3>
+            <ul>
+              <li>Use the attached content as the source of truth.</li>
+              <li>
+                Include all relevant text, images, data, labels, and content
+                specified in the references.
+              </li>
+              <li>Preserve the original meaning of all text.</li>
+              <li>
+                Do not invent products, statistics, testimonials, features, or
+                unsupported information.
+              </li>
+              <li>
+                Do not replace meaningful content with generic placeholder text.
+              </li>
+              <li>Use supplied images and brand assets where appropriate.</li>
+              <li>
+                If an asset is missing, use a suitable temporary placeholder and
+                clearly identify it.
+              </li>
+            </ul>
+            <p>
+              Ensure that the resulting interface feels like a real, coherent
+              product rather than a decorative mockup.
+            </p>
+            <h3>## 4. Transform the Wireframe into High-Fidelity UI</h3>
+            <p><b>Visual Design</b></p>
+            <ul>
+              <li>
+                Establish a clear visual hierarchy through typography, scale,
+                contrast, spacing, and color.
+              </li>
+              <li>
+                Create a cohesive color palette appropriate to the supplied
+                brand and references.
+              </li>
+              <li>
+                Use consistent typography with suitable font sizes, weights,
+                line heights, and text lengths.
+              </li>
+              <li>
+                Apply a consistent spacing system, grid, alignment, and layout
+                rhythm.
+              </li>
+              <li>
+                Design polished buttons, inputs, cards, navigation elements,
+                tabs, menus, and other components.
+              </li>
+              <li>
+                Use appropriate borders, shadows, radii, backgrounds, and visual
+                effects without unnecessary decoration.
+              </li>
+              <li>
+                Ensure that icons, illustrations, and images share a consistent
+                visual style.
+              </li>
+            </ul>
+            <p><b>UX Quality</b></p>
+            <ul>
+              <li>
+                Maintain clear navigation and intuitive interaction patterns.
+              </li>
+              <li>
+                Make primary and secondary actions visually distinguishable.
+              </li>
+              <li>Ensure that content is easy to scan and understand.</li>
+              <li>
+                Provide appropriate visual feedback for interactive elements.
+              </li>
+              <li>
+                Maintain readable contrast, accessible typography, and
+                sufficiently large interaction targets.
+              </li>
+              <li>
+                Avoid visual clutter, inconsistent components, excessive
+                gradients, and decorative effects that harm usability.
+              </li>
+            </ul>
+            <h3>## 5. Follow the Visual References Intelligently</h3>
+            <p>
+              Use the supplied visual references to understand the intended
+              aesthetic, not to copy unrelated layouts blindly.
+            </p>
+            <p>
+              Extract relevant characteristics such as color palette,
+              typography, component styling, spacing, density, image treatment,
+              borders, shadows, surface styles, and overall brand personality.
+            </p>
+            <p>
+              Combine these characteristics with the original wireframe and
+              actual content to create a unified design.
+            </p>
+            <p>
+              If no visual references are supplied, choose a modern,
+              professional visual direction that fits the product's purpose and
+              audience.
+            </p>
+            <h3>## 6. Make the Design Complete and Consistent</h3>
+            <ul>
+              <li>
+                Design the entire supplied screen or set of screens, not just
+                the hero section or first viewport.
+              </li>
+              <li>Preserve consistency across all screens.</li>
+              <li>
+                Reuse components and visual patterns wherever appropriate.
+              </li>
+              <li>Ensure realistic content density and balanced whitespace.</li>
+              <li>
+                Prevent text clipping, overlapping elements, awkward wrapping,
+                and inconsistent alignment.
+              </li>
+              <li>
+                Respect the intended platform, such as desktop web, mobile web,
+                or a mobile application.
+              </li>
+              <li>
+                If the target viewport is not specified, infer it from the
+                wireframe and ask only if the choice materially affects the
+                result.
+              </li>
+            </ul>
+            <h3>## 7. Final Quality Check</h3>
+            <p>Before presenting the result, verify that:</p>
+            <ol>
+              <li>The original wireframe structure has been respected.</li>
+              <li>All supplied content has been incorporated appropriately.</li>
+              <li>The design follows a consistent visual language.</li>
+              <li>Every major component looks intentionally designed.</li>
+              <li>The information hierarchy is clear.</li>
+              <li>
+                The interface is visually polished, realistic, and usable.
+              </li>
+              <li>
+                No unsupported content or unnecessary sections have been
+                introduced.
+              </li>
+              <li>
+                The result looks like a genuine, professional High-Fidelity UI
+                design rather than a colored wireframe.
+              </li>
+            </ol>
+            <h3>## 8. Deliverable</h3>
+            <p>
+              Produce the actual <b>High-Fidelity UI Design</b> based on the
+              supplied attachments.
+            </p>
+            <p>
+              Do not merely describe the proposed design or provide a list of
+              suggestions.
+            </p>
+            <p>
+              If your environment supports direct visual generation, generate
+              the finished interface. If it supports a design canvas, create the
+              design there. If it supports editable code or design files,
+              preserve the result in an editable format when possible.
+            </p>
+            <p>
+              If you cannot directly create the requested design in your
+              environment, clearly state that limitation and provide the most
+              suitable alternative.
+            </p>
+            <p class="prompt-ending">
+              <b>Final priority:</b> Fidelity to the original wireframe,
+              accuracy of the supplied content, excellent usability, and
+              professional visual execution—in that order.
+            </p>
+          </div>
+          <div class="prompt-footer">
+            <span id="word-count">— كلمة تقريباً</span>
+            <button class="copy-btn" id="copy-btn" type="button">
+              <span class="copy-icon">▢</span
+              ><span id="copy-label">نسخ البرومبت</span>
+            </button>
+          </div>
+        </div>
+        <p class="copy-note" id="copy-note" role="status" aria-live="polite">
+          سيتم نسخ نص البرومبت فقط، بدون عناصر واجهة الموقع.
+        </p>
+      </section>
+
+      <section class="tips-grid">
+        <article class="tip-card glass">
+          <span class="tip-symbol">↗</span>
+          <h3>ارفع كل شيء معاً</h3>
+          <p>
+            أرسل صورة الـ Wireframe والمحتوى والمراجع والبرومبت في المحادثة
+            نفسها.
+          </p>
+        </article>
+        <article class="tip-card glass">
+          <span class="tip-symbol">⌘</span>
+          <h3>حدّد وظيفة كل صورة</h3>
+          <p>وضّح أي صورة للبنية، وأيها للمحتوى، وأيها مرجع للأسلوب البصري.</p>
+        </article>
+        <article class="tip-card glass">
+          <span class="tip-symbol">◇</span>
+          <h3>اختبر النتيجة</h3>
+          <p>
+            راجع جميع الشاشات وتأكد من عدم فقدان أقسام أو اختراع معلومات جديدة.
+          </p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <span class="footer-mark">&lt;/&gt;</span>
+      <span>صُنع للمصممين الذين يحوّلون الأفكار إلى تجارب.</span>
+      <span class="footer-line"></span>
+      <span>Prompt Studio</span>
+    </footer>
+    <div class="toast" id="toast" role="status" aria-live="polite">
+      تم نسخ البرومبت بنجاح ✓
+    </div>
+    <script>
+      const promptContent = document.getElementById("prompt-content");
+      const copyButton = document.getElementById("copy-btn");
+      const copyLabel = document.getElementById("copy-label");
+      const copyNote = document.getElementById("copy-note");
+      const toast = document.getElementById("toast");
+      const checks = [...document.querySelectorAll(".prep-check")];
+      const checkedCount = document.getElementById("checked-count");
+      const wordCount = document.getElementById("word-count");
+
+      function getPromptText() {
+        // Copy only the prompt text, not the site's toolbar or surrounding interface.
+        return promptContent.innerText.trim();
+      }
+
+      function updateWordCount() {
+        const words = getPromptText().split(/\s+/).filter(Boolean).length;
+        wordCount.textContent = `${words.toLocaleString("en-US")} words`;
+      }
+      function updateChecklist() {
+        const count = checks.filter((check) => check.checked).length;
+        checkedCount.textContent = count;
+      }
+      checks.forEach((check) =>
+        check.addEventListener("change", updateChecklist),
+      );
+
+      let toastTimeout;
+      function showToast(message) {
+        toast.textContent = message;
+        toast.classList.add("show");
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => toast.classList.remove("show"), 2600);
+      }
+
+      copyButton.addEventListener("click", async () => {
+        const text = getPromptText();
+        try {
+          await navigator.clipboard.writeText(text);
+        } catch (error) {
+          // Fallback for browsers or contexts where Clipboard API is unavailable.
+          const textarea = document.createElement("textarea");
+          textarea.value = text;
+          textarea.setAttribute("readonly", "");
+          textarea.style.position = "fixed";
+          textarea.style.opacity = "0";
+          document.body.appendChild(textarea);
+          textarea.select();
+          const copied = document.execCommand("copy");
+          textarea.remove();
+          if (!copied) {
+            copyNote.textContent =
+              "تعذّر النسخ تلقائياً. حدّد نص البرومبت وانسخه يدوياً.";
+            showToast("لم ينجح النسخ التلقائي — انسخ النص يدوياً");
+            return;
+          }
+        }
+        copyButton.classList.add("copied");
+        copyLabel.textContent = "تم النسخ!";
+        copyButton.querySelector(".copy-icon").textContent = "✓";
+        copyNote.textContent =
+          "تم نسخ نص البرومبت فقط. أرفق صورك وأرسلها مع النص في رسالة واحدة.";
+        showToast("تم نسخ البرومبت بنجاح ✓");
+        setTimeout(() => {
+          copyButton.classList.remove("copied");
+          copyLabel.textContent = "نسخ البرومبت";
+          copyButton.querySelector(".copy-icon").textContent = "▢";
+        }, 2200);
+      });
+
+      updateWordCount();
+      updateChecklist();
+    </script>
+  </body>
+</html>
